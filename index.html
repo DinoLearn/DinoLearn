@@ -1,0 +1,688 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Dino Learn Hub - ค้นหาคณะที่ใช่ ติวข้อสอบ เลี้ยงไดโนเสาร์คู่ใจ และหาเพื่อนร่วมทาง">
+    <title>Dino Learn Hub | ค้นหาคณะ ข้อสอบ เลี้ยงสัตว์ และเพื่อนเรียน</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Login Page Overlay -->
+    <div class="login-overlay" id="loginOverlay">
+        <div class="login-card">
+            <div class="login-glow"></div>
+            <div class="login-logo">🦖</div>
+            <h1 class="login-title">DinoLearn Hub</h1>
+            <p class="login-subtitle" id="loginSubtitle">เข้าสู่ระบบเพื่อเริ่มต้นการเรียนรู้</p>
+            <div class="login-form" id="loginForm">
+                <div class="login-input-group">
+                    <span class="input-icon">👤</span>
+                    <input type="text" class="login-input" id="loginUsername" placeholder="ชื่อผู้ใช้งาน" autocomplete="off">
+                </div>
+                <!-- Register fields (hidden by default) -->
+                <div class="login-input-group register-only" id="registerEmailGroup" style="display:none">
+                    <span class="input-icon">📧</span>
+                    <input type="email" class="login-input" id="registerEmail" placeholder="อีเมล (ไม่บังคับ)" autocomplete="off">
+                </div>
+                <div class="login-input-group">
+                    <span class="input-icon">🔒</span>
+                    <input type="password" class="login-input" id="loginPassword" placeholder="รหัสผ่าน">
+                </div>
+                <div class="login-input-group register-only" id="registerConfirmGroup" style="display:none">
+                    <span class="input-icon">🔐</span>
+                    <input type="password" class="login-input" id="registerConfirmPassword" placeholder="ยืนยันรหัสผ่าน">
+                </div>
+                <p class="login-error" id="loginError"></p>
+                <button class="login-btn" id="btnLogin" onclick="loginUser()">เข้าสู่ระบบ</button>
+                <p class="login-toggle" id="loginToggleText">ยังไม่มีบัญชี? <a onclick="toggleLoginMode()">สมัครสมาชิกใหม่</a></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Background Particles -->
+    <div class="bg-particles" id="bgParticles"></div>
+
+    <!-- App Container -->
+    <div class="app-layout">
+        <!-- Sidebar Navigation -->
+        <aside class="sidebar">
+            <div class="sidebar-logo">
+                <span class="logo-emoji">🦖</span>
+                <span class="logo-text">DinoLearn</span>
+            </div>
+            
+            <nav class="nav-menu">
+                <button class="nav-item active" data-page="dashboardPage">
+                    <span class="nav-icon">📊</span>
+                    <span class="nav-label">หน้าแรก</span>
+                </button>
+                <button class="nav-item" data-page="quizPage">
+                    <span class="nav-icon">🎓</span>
+                    <span class="nav-label">ประเมินคณะ</span>
+                </button>
+                <button class="nav-item" data-page="examPage">
+                    <span class="nav-icon">✏️</span>
+                    <span class="nav-label">คลังข้อสอบ</span>
+                </button>
+                <button class="nav-item" data-page="dinoPage">
+                    <span class="nav-icon">🦕</span>
+                    <span class="nav-label">ไดโนเสาร์</span>
+                </button>
+                <button class="nav-item" data-page="buddyPage">
+                    <span class="nav-icon">🤝</span>
+                    <span class="nav-label">หาเพื่อนเรียน</span>
+                </button>
+                <button class="nav-item" data-page="chatPage">
+                    <span class="nav-icon">💬</span>
+                    <span class="nav-label">แชทและเพื่อน</span>
+                    <span class="nav-badge" id="navChatBadge" style="display:none">0</span>
+                </button>
+                <button class="nav-item" data-page="reportPage">
+                    <span class="nav-icon">📋</span>
+                    <span class="nav-label">รายงานปัญหา</span>
+                </button>
+            </nav>
+
+            <div class="sidebar-footer">
+                <div class="user-quick-info">
+                    <div class="user-avatar">👤</div>
+                    <div class="user-details">
+                        <p class="user-name" id="sidebarUsername">นักเรียนคนเก่ง</p>
+                        <p class="user-level" id="userLevelText">Dino Keeper Lv.1</p>
+                    </div>
+                </div>
+                <button class="btn-fullscreen" id="btnFullscreen" onclick="toggleFullscreen()">
+                    <span>📺</span>
+                    <span id="fullscreenText">เต็มจอ</span>
+                </button>
+                <button class="btn-logout" id="btnLogout" onclick="logoutUser()">
+                    <span>🚪</span>
+                    <span>ออกจากระบบ</span>
+                </button>
+            </div>
+        </aside>
+
+        <!-- Main Content Area -->
+        <main class="main-content">
+            <!-- 1. Dashboard Page -->
+            <section class="app-page active" id="dashboardPage">
+                <header class="page-header">
+                    <h1>แผงควบคุมระบบ <span class="highlight">Dino Learn</span></h1>
+                    <p>ยินดีต้อนรับกลับมา! มาประเมินคณะ ติวข้อสอบ และดูแลไดโนเสาร์กันเถอะ</p>
+                </header>
+
+                <div class="dashboard-grid">
+                    <!-- Quick Dino Widget -->
+                    <div class="dash-card dino-quick-card">
+                        <div class="card-header">
+                            <h3>🦕 คู่หูของฉัน</h3>
+                            <span class="status-badge" id="dashDinoEmotion">ดีใจ</span>
+                        </div>
+                        <div class="dino-quick-body">
+                            <div class="dino-avatar-wrap">
+                                <div class="dino-quick-avatar" id="dashDinoVisual">🥚</div>
+                            </div>
+                            <div class="dino-quick-info">
+                                <h4 id="dashDinoName">ไข่ไดโนเสาร์</h4>
+                                <p id="dashDinoStage">ร่าง: ฟักตัว</p>
+                                <div class="quick-bars">
+                                    <div class="bar-group">
+                                        <span>ความอิ่ม</span>
+                                        <div class="bar-container"><div class="bar-fill" id="dashHungerBar" style="width: 100%"></div></div>
+                                    </div>
+                                    <div class="bar-group">
+                                        <span>ความสุข</span>
+                                        <div class="bar-container"><div class="bar-fill" id="dashMoodBar" style="width: 100%"></div></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Quick Faculty Widget -->
+                    <div class="dash-card faculty-quick-card">
+                        <div class="card-header">
+                            <h3>🎓 คณะที่แนะนำสำหรับคุณ</h3>
+                        </div>
+                        <div class="faculty-quick-body" id="dashFacultyResult">
+                            <p class="muted-text">ยังไม่มีประวัติการประเมิน เริ่มต้นประเมินได้ที่เมนู "ประเมินคณะ"</p>
+                            <button class="btn-primary" onclick="switchPage('quizPage')">เริ่มทำแบบประเมิน</button>
+                        </div>
+                    </div>
+
+                    <!-- Quick Exam Info -->
+                    <div class="dash-card exam-quick-card">
+                        <div class="card-header">
+                            <h3>✏️ คลังวิชาเด่น</h3>
+                        </div>
+                        <div class="exam-quick-body">
+                            <div class="exam-mini-grid">
+                                <div class="mini-exam-item">
+                                    <span class="mini-exam-icon">📚</span>
+                                    <div>
+                                        <h4>TCAS/TPAT</h4>
+                                        <p>รับอาหารสเต็ก / สูตรพิเศษ</p>
+                                    </div>
+                                </div>
+                                <div class="mini-exam-item">
+                                    <span class="mini-exam-icon">🗺️</span>
+                                    <div>
+                                        <h4>โควตา 4 ภาค</h4>
+                                        <p>รับพืชผล / ผลไม้หายาก</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <button class="btn-secondary" onclick="switchPage('examPage')">เข้าสู่คลังข้อสอบ</button>
+                        </div>
+                    </div>
+
+                    <!-- Streak & System status -->
+                    <div class="dash-card streak-card">
+                        <div class="card-header">
+                            <h3>🔥 สถิติการใช้งาน</h3>
+                        </div>
+                        <div class="streak-body">
+                            <div style="display: flex; gap: 1rem; margin-bottom: 1rem; flex-wrap: wrap;">
+                                <div class="streak-counter">
+                                    <span class="streak-num" id="dashStreakVal">1</span>
+                                    <span class="streak-lbl">วันติดต่อกัน</span>
+                                </div>
+                                <div class="streak-counter" style="background: linear-gradient(135deg, rgba(16, 185, 129, 0.15), rgba(6, 182, 212, 0.15)); border-color: rgba(16, 185, 129, 0.25);">
+                                    <span class="streak-num" id="dashStudyTimeVal" style="color: #10b981; text-shadow: 0 0 10px rgba(16, 185, 129, 0.3);">0</span>
+                                    <span class="streak-lbl">นาทีใช้งานสะสม</span>
+                                </div>
+                            </div>
+                            <p class="streak-desc">ล็อกอินเข้าทุกวันเพื่อทำให้ไดโนเสาร์ของคุณอารมณ์ดี! หากไม่เข้าใช้งาน 2 วันติดต่อกัน ไดโนเสาร์จะโกรธ และอาจเสียชีวิตได้หากทิ้งไว้นานกว่านั้น</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 2. Faculty Quiz Page (Landing + Quiz Container) -->
+            <section class="app-page" id="quizPage">
+                <!-- Landing sub-page inside Quiz -->
+                <div id="quizLandingView" class="quiz-subview active">
+                    <div class="landing-container">
+                        <div class="logo-glow"></div>
+                        <div class="landing-icon">🎓</div>
+                        <h1 class="landing-title">ค้นหาคณะที่ใช่<br><span class="highlight">สำหรับคุณ</span></h1>
+                        <p class="landing-subtitle">ตอบคำถาม 25 ข้อ เพื่อวิเคราะห์และเปรียบเทียบคณะมหาวิทยาลัยที่เหมาะสมกับตัวคุณมากที่สุด</p>
+                        <div class="features">
+                            <div class="feature-item">
+                                <span class="feature-icon">🎲</span>
+                                <span>สุ่มคำถามจาก 25 ข้อ</span>
+                            </div>
+                            <div class="feature-item">
+                                <span class="feature-icon">📊</span>
+                                <span>เปรียบเทียบ 10 คณะ</span>
+                            </div>
+                            <div class="feature-item">
+                                <span class="feature-icon">🔄</span>
+                                <span>รีเซ็ตทุกรอบการเล่น</span>
+                            </div>
+                        </div>
+                        <button class="btn-start btn-glow" id="btnStartQuiz">
+                            <span>เริ่มทำแบบประเมิน</span>
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M5 12h14M12 5l7 7-7 7"/>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Active Quiz View -->
+                <div id="quizActiveView" class="quiz-subview">
+                    <div class="quiz-container">
+                        <div class="progress-wrapper">
+                            <div class="progress-info">
+                                <span class="progress-text" id="progressText">ข้อ 1 / 25</span>
+                                <span class="progress-percent" id="progressPercent">0%</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" id="progressFill"></div>
+                            </div>
+                        </div>
+                        <div class="question-card" id="questionCard">
+                            <div class="question-number" id="questionNumber">01</div>
+                            <h2 class="question-text" id="questionText">กำลังโหลดคำถาม...</h2>
+                            <div class="choices" id="choicesContainer"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Result View -->
+                <div id="quizResultView" class="quiz-subview">
+                    <div class="result-container">
+                        <div class="result-header">
+                            <div class="result-icon">🏆</div>
+                            <h1 class="result-title">ผลการประเมิน</h1>
+                            <p class="result-subtitle">คณะที่เหมาะกับคุณมากที่สุด</p>
+                        </div>
+                        <div class="top-faculty" id="topFaculty">
+                            <div class="top-faculty-badge">อันดับ 1</div>
+                            <div class="top-faculty-icon" id="topFacultyIcon">⚙️</div>
+                            <h2 class="top-faculty-name" id="topFacultyName">วิศวกรรมศาสตร์</h2>
+                            <p class="top-faculty-desc" id="topFacultyDesc">รายละเอียดคณะ...</p>
+                            <div class="top-faculty-score">
+                                <span class="score-label">คะแนนความเหมาะสม</span>
+                                <span class="score-value" id="topFacultyScore">0 คะแนน</span>
+                            </div>
+                        </div>
+                        <div class="rankings" id="rankingsContainer"></div>
+                        <button class="btn-restart" id="btnRestartQuiz">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M1 4v6h6M23 20v-6h-6"/>
+                                <path d="M20.49 9A9 9 0 0 0 5.64 5.64L1 10m22 4l-4.64 4.36A9 9 0 0 1 3.51 15"/>
+                            </svg>
+                            <span>ทำแบบประเมินอีกครั้ง</span>
+                        </button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 3. Study & Exam Page -->
+            <section class="app-page" id="examPage">
+                <header class="page-header">
+                    <h1>คลังข้อสอบและวิชาทบทวน <span class="highlight">รับอาหารไดโนเสาร์</span></h1>
+                    <p>เลือกฝึกทำข้อสอบตามคณะที่แนะนำหรือวิชาที่สนใจ ตอบถูกสะสมวัตถุดิบไปเลี้ยงไดโนเสาร์คู่ใจกันเลย! 
+                        <span id="examDailyLimitText" style="display: inline-block; margin-left: 10px; background: rgba(99, 102, 241, 0.15); border: 1px solid rgba(99, 102, 241, 0.3); color: var(--accent-3); padding: 2px 10px; border-radius: 100px; font-size: 0.8rem; font-weight: 600; transition: all 0.3s ease;">วันนี้ทำไปแล้ว: 0 / 40 ข้อ</span>
+                        <span id="userWalletText" style="display: inline-block; margin-left: 10px; background: rgba(16, 185, 129, 0.15); border: 1px solid rgba(16, 185, 129, 0.3); color: var(--success); padding: 2px 10px; border-radius: 100px; font-size: 0.8rem; font-weight: 600; cursor: pointer; transition: all 0.3s ease;" onclick="showTopUpModal()">💰 กระเป๋าเงิน: 100 บาท (เติมเงิน)</span>
+                    </p>
+                </header>
+
+                <!-- Exam Selection Hub -->
+                <div id="examHubView" class="exam-subview active">
+                    <div class="exam-categories">
+                        <!-- Category 1: TCAS Central -->
+                        <div class="exam-cat-section">
+                            <h2 class="cat-title">📚 คลังข้อสอบ TCAS / TPAT / A-Level</h2>
+                            <div class="exam-grid" id="centralExamGrid">
+                                <!-- JS Inject -->
+                            </div>
+                        </div>
+
+                        <!-- Category 2: Regional Quotas -->
+                        <div class="exam-cat-section">
+                            <h2 class="cat-title">🗺️ ข้อสอบโควตาภูมิภาค (เหนือ ใต้ กลาง อีสาน)</h2>
+                            <div class="exam-grid" id="regionalExamGrid">
+                                <!-- JS Inject -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Active Exam Quiz Arena -->
+                <div id="examActiveView" class="exam-subview">
+                    <div class="quiz-container">
+                        <div class="exam-arena-header">
+                            <button class="btn-back" id="btnBackToExamHub">
+                                👈 ย้อนกลับ
+                            </button>
+                            <span class="exam-title-display" id="activeExamTitle">กำลังทำข้อสอบ</span>
+                        </div>
+
+                        <div class="progress-wrapper">
+                            <div class="progress-info">
+                                <span class="progress-text" id="examProgressText">ข้อ 1 / 5</span>
+                                <span class="progress-percent" id="examProgressPercent">0%</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" id="examProgressFill"></div>
+                            </div>
+                        </div>
+
+                        <div class="question-card" id="examQuestionCard">
+                            <h2 class="question-text" id="examQuestionText">คำถาม</h2>
+                            <div class="choices" id="examChoicesContainer"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Exam Result / Rewards Modal-like container -->
+                <div id="examResultView" class="exam-subview">
+                    <div class="result-container text-center">
+                        <div class="reward-icon">🎁</div>
+                        <h2 class="result-title">สอบเสร็จสิ้น!</h2>
+                        <p class="exam-result-desc" id="examResultScoreText">คุณตอบถูก 4 / 5 ข้อ</p>
+                        
+                        <div class="reward-box">
+                            <h3>🍕 วัตถุดิบอาหารที่ได้รับ:</h3>
+                            <div class="reward-items-list" id="rewardItemsList">
+                                <!-- JS Inject items -->
+                            </div>
+                        </div>
+
+                        <button class="btn-primary" id="btnFinishExamAndClaim">
+                            รับวัตถุดิบและกลับไปหน้าหลัก
+                        </button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 4. Dinosaur Pet Page -->
+            <section class="app-page" id="dinoPage">
+                <header class="page-header">
+                    <h1>ถ้ำเลี้ยงไดโนเสาร์ <span class="highlight">Dino Pet Sanctuary</span></h1>
+                    <p>เลี้ยงดูไดโนเสาร์คู่ใจ ผสมสูตรอาหารเลิศรสเพื่อปลดล็อกสายวิวัฒนาการใหม่ๆ</p>
+                </header>
+
+                <div class="dino-game-container">
+                    <!-- Dinosaur Screen View -->
+                    <div class="dino-screen-card">
+                        <!-- Stats overlay -->
+                        <div class="dino-stats-overlay">
+                            <div class="status-item">
+                                <span class="status-icon">🍔</span>
+                                <div>
+                                    <span class="status-lbl">ความอิ่ม</span>
+                                    <div class="bar-container mini"><div class="bar-fill" id="dinoHungerFill" style="width: 80%"></div></div>
+                                </div>
+                            </div>
+                            <div class="status-item">
+                                <span class="status-icon">❤️</span>
+                                <div>
+                                    <span class="status-lbl">ความสุข</span>
+                                    <div class="bar-container mini"><div class="bar-fill" id="dinoMoodFill" style="width: 70%"></div></div>
+                                </div>
+                            </div>
+                            <div class="status-item">
+                                <span class="status-icon">⭐</span>
+                                <div>
+                                    <span class="status-lbl">EXP เติบโต</span>
+                                    <div class="bar-container mini"><div class="bar-fill" id="dinoExpFill" style="width: 30%"></div></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Interactive Dinosaur Visualizer -->
+                        <div class="dino-visual-zone">
+                            <div class="dino-glow-effect" id="dinoGlow"></div>
+                            <!-- Emotion Bubble -->
+                            <div class="emotion-bubble" id="dinoBubble">หิวจัง!</div>
+                            <!-- Dinosaur Entity representation -->
+                            <div class="dino-sprite-render" id="dinoRender">🥚</div>
+                            
+                            <!-- Status Badges -->
+                            <div class="dino-badges">
+                                <span class="badge" id="dinoStageBadge">ไข่ไดโนเสาร์</span>
+                                <span class="badge accent" id="dinoEmotionBadge">กำลังฟักตัว</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Food Management & Recipe Crafting Card -->
+                    <div class="dino-controls-card">
+                        <div class="tabs-control">
+                            <button class="tab-btn active" id="tabInventoryBtn">คลังวัตถุดิบ</button>
+                            <button class="tab-btn" id="tabRecipeBtn">สูตรผสมอาหาร</button>
+                            <button class="tab-btn" id="tabCollectionBtn">ไดโนเสาร์สะสม</button>
+                        </div>
+
+                        <!-- Inventory Subpanel -->
+                        <div class="control-panel active" id="inventoryPanel">
+                            <h3>🥬 วัตถุดิบดิบ (ทำข้อสอบเพื่อรับเพิ่ม)</h3>
+                            <div class="inventory-grid" id="rawInventoryGrid">
+                                <!-- raw items: leaves, meat, berry, ore -->
+                            </div>
+
+                            <h3 class="margin-top-1">🍔 อาหารที่ปรุงสำเร็จ</h3>
+                            <div class="inventory-grid" id="craftedInventoryGrid">
+                                <!-- crafted items: salad, steak, magma ore, digital pie, cosmic fruit -->
+                            </div>
+                        </div>
+
+                        <!-- Recipe / Crafting Panel -->
+                        <div class="control-panel" id="recipePanel">
+                            <h3>🔬 เครื่องปรุงสูตรอาหาร</h3>
+                            <p class="subtitle-text">ผสมวัตถุดิบ 2 อย่างเข้าด้วยกันเพื่อสร้างอาหารชั้นเลิศ</p>
+                            
+                            <div class="crafting-area">
+                                <div class="craft-slot" id="craftSlot1" data-item="">
+                                    <span class="slot-placeholder">ช่องที่ 1</span>
+                                </div>
+                                <span class="plus-icon">➕</span>
+                                <div class="craft-slot" id="craftSlot2" data-item="">
+                                    <span class="slot-placeholder">ช่องที่ 2</span>
+                                </div>
+                                <span class="equals-icon">➡️</span>
+                                <button class="btn-primary" id="btnCraftFood" disabled>ปรุงอาหาร</button>
+                            </div>
+
+                            <div class="available-craft-materials">
+                                <h4>เลือกวัตถุดิบดิบที่ต้องการผสม:</h4>
+                                <div class="inventory-grid" id="craftMaterialsGrid">
+                                    <!-- raw materials click to slot -->
+                                </div>
+                            </div>
+
+                            <div class="recipe-book">
+                                <h4>📖 สมุดบันทึกสูตรอาหาร:</h4>
+                                <ul class="recipe-list">
+                                    <li>🥬 ใบไม้ + 🥬 ใบไม้ = 🥗 สลัดผักพรีเมียม (สายพืช)</li>
+                                    <li>🥩 เนื้อสด + 🥩 เนื้อสด = 🍖 สเต็กสุกพอดี (สายเนื้อ)</li>
+                                    <li>🥬 ใบไม้ + 🥩 เนื้อสด = 🍲 ซุปรวมมิตรเพื่อสุขภาพ (สายผสม)</li>
+                                    <li>🫐 เบอร์รี่วิเศษ + ⛰️ แร่ไฟชาร์จ = ☄️ ผลไม้เพลิงแมกม่า (สายวิวัฒนาการพิเศษ)</li>
+                                    <li>🍄 เห็ดวิเศษ + 🥬 ใบไม้ = 🍵 ซุปเห็ดป่า (สายพืชเข้มข้น)</li>
+                                    <li>🐟 ปลาสด + 🐟 ปลาสด = 🍣 ซาชิมิดีลักซ์ (สายโปรตีน)</li>
+                                    <li>🐟 ปลาสด + 🥩 เนื้อสด = 🍢 ย่างรวมทะเลบก (สายรวมโปรตีน)</li>
+                                    <li>💎 คริสตัล + 💎 คริสตัล = 🧪 ยาพลังคริสตัล (สายไซบอร์ก)</li>
+                                    <li>🫐 เบอร์รี่ + 💎 คริสตัล = 🍮 เจลลี่เพชรเรืองแสง (สายวิวัฒนาการ)</li>
+                                    <li>🍄 เห็ดวิเศษ + 🥩 เนื้อสด = 🥘 สเต็กเห็ดทรัฟเฟิล (สายพรีเมียม)</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- Collection Subpanel -->
+                        <div class="control-panel" id="collectionPanel">
+                            <h3>🦕 ทำเนียบคู่หูสะสม (Dino Sanctuary Sanctuary)</h3>
+                            <p class="subtitle-text" style="margin-bottom: 1.5rem;">คู่หูไดโนเสาร์ทั้งหมดที่คุณเลี้ยงดูจนเติบโตเต็มที่:</p>
+                            <div class="dino-collection-grid" id="dinoCollectionGrid">
+                                <!-- JS Inject -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 5. Study Buddy Matcher Page -->
+            <section class="app-page" id="buddyPage">
+                <header class="page-header">
+                    <h1>หาเพื่อนติวและสร้างกลุ่มเรียน <span class="highlight">Study Buddy Matcher</span></h1>
+                    <p>ระบบวิเคราะห์จับคู่เพื่อนร่วมทางที่มีความชอบความถนัด และเป้าหมายคณะเดียวกับคุณเพื่อให้เกิดการติวร่วมกันได้เต็มที่!</p>
+                </header>
+
+                <div class="buddy-container">
+                    <!-- User Preference setup (to update matching) -->
+                    <div class="buddy-setup-card">
+                        <h3>⚙️ ตั้งค่าความชอบและความถนัดของคุณ</h3>
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <label for="buddyIntField">วิชาที่คุณถนัดที่สุด:</label>
+                                <select id="buddyIntField" class="form-select">
+                                    <option value="math">คณิตศาสตร์ (Mathematics)</option>
+                                    <option value="science">วิทยาศาสตร์ (Science)</option>
+                                    <option value="languages">ภาษาอังกฤษ/ภาษาต่างประเทศ (English/Languages)</option>
+                                    <option value="society">สังคมศึกษา/ภาษาไทย (Social/Thai)</option>
+                                    <option value="art_design">ศิลปะและการออกแบบ (Art & Design)</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="buddyPrefStyle">สไตล์การอ่านหนังสือที่ชอบ:</label>
+                                <select id="buddyPrefStyle" class="form-select">
+                                    <option value="silent">ชอบอ่านเงียบๆ คนเดียวแล้วสลับมาถาม</option>
+                                    <option value="group">ชอบจับกลุ่มติวอธิบายแลกเปลี่ยนกัน</option>
+                                    <option value="exam">เน้นตะลุยทำโจทย์เก่าแชร์เทคนิค</option>
+                                </select>
+                            </div>
+                        </div>
+                        <button class="btn-primary margin-top-1" id="btnUpdateBuddyProfile">อัปเดตข้อมูลและคำนวณการจับคู่</button>
+                    </div>
+
+                    <!-- Matches Display List -->
+                    <div class="buddy-matches-section">
+                        <div class="section-header">
+                            <h3>👥 เพื่อนเรียนแนะนำที่เข้ากันได้ดีที่สุด</h3>
+                            <span class="sub-indicator">อัปเดตตามแบบประเมินและสไตล์การเรียนปัจจุบัน</span>
+                        </div>
+
+                        <div class="buddy-list" id="buddyListContainer">
+                            <!-- JS Inject buddy cards -->
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 6. Chat & Friends Page -->
+            <section class="app-page" id="chatPage">
+                <header class="page-header">
+                    <h1>แชทและเพื่อน <span class="highlight">Chat & Friends</span></h1>
+                    <p>จัดการคำขอเพื่อน แชทพูดคุย และสร้างกลุ่มเรียนร่วมกัน</p>
+                </header>
+
+                <!-- Chat Page Tabs -->
+                <div class="chat-tabs">
+                    <button class="chat-tab-btn active" id="tabFriendReqBtn" onclick="switchChatTab('friendReqPanel')">📩 คำขอเพื่อน <span class="tab-badge" id="friendReqBadge" style="display:none">0</span></button>
+                    <button class="chat-tab-btn" id="tabFriendsListBtn" onclick="switchChatTab('friendsListPanel')">👥 เพื่อนของฉัน</button>
+                    <button class="chat-tab-btn" id="tabChatsBtn" onclick="switchChatTab('chatsListPanel')">💬 แชท</button>
+                    <button class="chat-tab-btn" id="tabCreateGroupBtn" onclick="switchChatTab('createGroupPanel')">➕ สร้างกลุ่ม</button>
+                </div>
+
+                <!-- Panel 1: Friend Requests -->
+                <div class="chat-panel active" id="friendReqPanel">
+                    <div class="panel-section">
+                        <h3>📩 คำขอเพื่อนที่รอตอบรับ</h3>
+                        <div class="friend-req-list" id="incomingReqList">
+                            <p class="muted-text">ยังไม่มีคำขอเพื่อนเข้ามา</p>
+                        </div>
+                    </div>
+                    <div class="panel-section">
+                        <h3>📤 คำขอที่ฉันส่งไป</h3>
+                        <div class="friend-req-list" id="outgoingReqList">
+                            <p class="muted-text">ยังไม่ได้ส่งคำขอเพื่อน</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Panel 2: Friends List -->
+                <div class="chat-panel" id="friendsListPanel">
+                    <h3>👥 รายชื่อเพื่อนของฉัน</h3>
+                    <div class="friends-grid" id="friendsGrid">
+                        <p class="muted-text">ยังไม่มีเพื่อน เริ่มเพิ่มเพื่อนได้ที่หน้า "หาเพื่อนเรียน"</p>
+                    </div>
+                </div>
+
+                <!-- Panel 3: Chat List -->
+                <div class="chat-panel" id="chatsListPanel">
+                    <h3>💬 การสนทนาของฉัน</h3>
+                    <div class="chats-list" id="chatsList">
+                        <p class="muted-text">ยังไม่มีการสนทนา เริ่มแชทกับเพื่อนได้เลย!</p>
+                    </div>
+                </div>
+
+                <!-- Panel 4: Create Group -->
+                <div class="chat-panel" id="createGroupPanel">
+                    <h3>➕ สร้างกลุ่มเรียนใหม่</h3>
+                    <div class="create-group-form">
+                        <div class="form-group">
+                            <label for="groupNameInput">ชื่อกลุ่ม:</label>
+                            <input type="text" class="form-input" id="groupNameInput" placeholder="เช่น กลุ่มติว TCAS คณิต" autocomplete="off">
+                        </div>
+                        <div class="form-group">
+                            <label>เลือกเพื่อนเข้ากลุ่ม:</label>
+                            <div class="group-members-select" id="groupMembersSelect">
+                                <p class="muted-text">ต้องมีเพื่อนก่อนถึงจะเลือกได้</p>
+                            </div>
+                        </div>
+                        <button class="btn-primary" id="btnCreateGroup" onclick="createGroupChat()">🎉 สร้างกลุ่ม</button>
+                    </div>
+                </div>
+
+                <!-- Active Chat View (hidden by default, shows when clicking a chat) -->
+                <div class="chat-panel" id="activeChatPanel" style="display:none">
+                    <div class="active-chat-header">
+                        <button class="btn-back" onclick="closeChatView()">👈 กลับ</button>
+                        <div class="chat-header-info">
+                            <h3 id="activeChatName">แชท</h3>
+                            <span class="chat-members-count" id="activeChatMembers"></span>
+                        </div>
+                    </div>
+                    <div class="chat-messages" id="chatMessagesContainer">
+                        <!-- JS inject messages -->
+                    </div>
+                    <div class="chat-input-area">
+                        <input type="text" class="chat-input" id="chatMessageInput" placeholder="พิมพ์ข้อความ..." autocomplete="off">
+                        <button class="btn-send" id="btnSendMsg" onclick="sendMessage()">📤</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 7. Report Page -->
+            <section class="app-page" id="reportPage">
+                <header class="page-header">
+                    <h1>รายงานปัญหา <span class="highlight">Bug Report</span></h1>
+                    <p>พบปัญหาหรือมีข้อเสนอแนะ? ส่งรายงานมาได้เลย ทีมงานจะรีบดำเนินการแก้ไข</p>
+                </header>
+
+                <div class="report-container">
+                    <!-- Report Form -->
+                    <div class="report-form-card">
+                        <h3>📝 ส่งรายงานปัญหาใหม่</h3>
+                        <div class="form-group">
+                            <label for="reportTitle">หัวข้อปัญหา:</label>
+                            <input type="text" class="form-input" id="reportTitle" placeholder="เช่น ระบบประเมินคณะค้าง" autocomplete="off">
+                        </div>
+                        <div class="form-group">
+                            <label for="reportCategory">ประเภท:</label>
+                            <select class="form-select" id="reportCategory">
+                                <option value="bug">🐛 บั๊ก/ข้อผิดพลาด</option>
+                                <option value="ui">🎨 ปัญหาหน้าตา UI</option>
+                                <option value="feature">💡 ขอเพิ่มฟีเจอร์</option>
+                                <option value="performance">⚡ ปัญหาความเร็ว</option>
+                                <option value="other">📦 อื่นๆ</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="reportDesc">รายละเอียด:</label>
+                            <textarea class="form-textarea" id="reportDesc" rows="5" placeholder="อธิบายรายละเอียดปัญหาที่พบ..."></textarea>
+                        </div>
+                        <button class="btn-primary" onclick="submitReport()">📤 ส่งรายงาน</button>
+                    </div>
+
+                    <!-- Report History -->
+                    <div class="report-history-card">
+                        <h3>📋 ประวัติรายงานของฉัน</h3>
+                        <div class="report-list" id="reportList">
+                            <p class="muted-text">ยังไม่เคยส่งรายงาน</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Canvas for Confetti -->
+    <canvas id="confettiCanvas"></canvas>
+
+    <!-- UI Overlay for general notifications/modal -->
+    <div class="dino-toast" id="uiToast"></div>
+
+    <!-- Payment & Top-Up Modal -->
+    <div class="payment-modal-overlay" id="paymentModalOverlay" style="display: none;">
+        <div class="payment-card">
+            <div class="payment-glow"></div>
+            <button class="modal-close-btn" onclick="closePaymentModal()">×</button>
+            <div class="payment-icon" id="paymentModalIcon">💳</div>
+            <h2 class="payment-title" id="paymentModalTitle">ธุรกรรมระบบเรียน</h2>
+            <div class="payment-body" id="paymentModalBody">
+                <!-- Dynamic Content -->
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
