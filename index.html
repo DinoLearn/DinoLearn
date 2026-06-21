@@ -85,6 +85,14 @@
                     <span class="nav-icon">📋</span>
                     <span class="nav-label">รายงานปัญหา</span>
                 </button>
+                <button class="nav-item" data-page="shopPage">
+                    <span class="nav-icon">🏪</span>
+                    <span class="nav-label">ร้านค้าไอเทม</span>
+                </button>
+                <button class="nav-item" data-page="gachaPage">
+                    <span class="nav-icon">🎡</span>
+                    <span class="nav-label">สุ่มสกิน</span>
+                </button>
             </nav>
 
             <div class="sidebar-footer">
@@ -289,7 +297,7 @@
                 <header class="page-header">
                     <h1>คลังข้อสอบและวิชาทบทวน <span class="highlight">รับอาหารไดโนเสาร์</span></h1>
                     <p>เลือกฝึกทำข้อสอบตามคณะที่แนะนำหรือวิชาที่สนใจ ตอบถูกสะสมวัตถุดิบไปเลี้ยงไดโนเสาร์คู่ใจกันเลย! 
-                        <span id="examDailyLimitText" style="display: inline-block; margin-left: 10px; background: rgba(99, 102, 241, 0.15); border: 1px solid rgba(99, 102, 241, 0.3); color: var(--accent-3); padding: 2px 10px; border-radius: 100px; font-size: 0.8rem; font-weight: 600; transition: all 0.3s ease;">วันนี้ทำไปแล้ว: 0 / 40 ข้อ</span>
+                        <span id="examDailyLimitText" style="display: inline-block; margin-left: 10px; background: rgba(99, 102, 241, 0.15); border: 1px solid rgba(99, 102, 241, 0.3); color: var(--accent-3); padding: 2px 10px; border-radius: 100px; font-size: 0.8rem; font-weight: 600; transition: all 0.3s ease;">วันนี้ทำไปแล้ว: 0 / 100 ข้อ</span>
                         <span id="userWalletText" style="display: inline-block; margin-left: 10px; background: rgba(16, 185, 129, 0.15); border: 1px solid rgba(16, 185, 129, 0.3); color: var(--success); padding: 2px 10px; border-radius: 100px; font-size: 0.8rem; font-weight: 600; cursor: pointer; transition: all 0.3s ease;" onclick="showTopUpModal()">💰 กระเป๋าเงิน: 100 บาท (เติมเงิน)</span>
                     </p>
                 </header>
@@ -432,6 +440,11 @@
                             <h3 class="margin-top-1">🍔 อาหารที่ปรุงสำเร็จ</h3>
                             <div class="inventory-grid" id="craftedInventoryGrid">
                                 <!-- crafted items: salad, steak, magma ore, digital pie, cosmic fruit -->
+                            </div>
+
+                            <h3 class="margin-top-1">🧪 ยาน้ำและไอเทมพิเศษ (ซื้อได้จากร้านค้า)</h3>
+                            <div class="inventory-grid" id="potionsInventoryGrid">
+                                <!-- potions: hunger, mood, exp, exam -->
                             </div>
                         </div>
 
@@ -661,6 +674,74 @@
                     </div>
                 </div>
             </section>
+
+            <!-- 8. Shop Page -->
+            <section class="app-page" id="shopPage">
+                <header class="page-header">
+                    <h1>🏪 ร้านค้าไอเทมไดโนเสาร์ <span class="highlight">Dino Shop</span></h1>
+                    <p>ซื้อยาน้ำเพิ่มพลังและวัตถุดิบด้วยเงินจำลองเพื่อพัฒนาไดโนเสาร์ของคุณ!</p>
+                </header>
+                <div class="shop-container">
+                    <div class="shop-wallet-banner">
+                        <span class="wallet-display">💰 ยอดเงินคงเหลือ: <strong id="shopWalletVal">0</strong> บาท</span>
+                        <button class="btn-primary" onclick="showTopUpModal()" style="padding: 0.45rem 1rem; font-size: 0.85rem;">💰 เติมเงินด่วน</button>
+                    </div>
+                    <div class="shop-grid" id="shopGrid">
+                        <!-- JS Inject items -->
+                    </div>
+                </div>
+            </section>
+
+            <!-- 9. Gachapon Skin Page -->
+            <section class="app-page" id="gachaPage">
+                <header class="page-header">
+                    <h1>🎡 ตู้สุ่มสกินไดโนเสาร์ <span class="highlight">Dino Gachapon</span></h1>
+                    <p>สุ่มรับสกินตกแต่งใหม่ๆ สำหรับไดโนเสาร์ของคุณ มีสกินทั้งหมด 50 แบบสะสมให้ครบ! 1 สุ่ม = 10 บาท | 10 สุ่ม = 90 บาท</p>
+                </header>
+                <div class="gacha-container">
+                    <div class="gacha-status-banner">
+                        <span class="wallet-display">💰 ยอดเงินคงเหลือ: <strong id="gachaWalletVal">0</strong> บาท</span>
+                        <button class="btn-primary" onclick="showTopUpModal()" style="padding: 0.45rem 1rem; font-size: 0.85rem;">💰 เติมเงิน</button>
+                    </div>
+
+                    <div class="gacha-main-zone">
+                        <div class="gacha-machine-wrap">
+                            <div class="gacha-machine-glow"></div>
+                            <div class="gacha-machine">
+                                <div class="gacha-glass">
+                                    <div class="gacha-balls" id="gachaBallsContainer">
+                                        <!-- balls animated -->
+                                        <div class="gacha-ball" style="background:#ef4444; left:15%; top:50%;"></div>
+                                        <div class="gacha-ball" style="background:#3b82f6; left:30%; top:60%;"></div>
+                                        <div class="gacha-ball" style="background:#10b981; left:45%; top:55%;"></div>
+                                        <div class="gacha-ball" style="background:#f59e0b; left:60%; top:62%;"></div>
+                                        <div class="gacha-ball" style="background:#8b5cf6; left:75%; top:50%;"></div>
+                                        <div class="gacha-ball" style="background:#ec4899; left:20%; top:68%;"></div>
+                                        <div class="gacha-ball" style="background:#06b6d4; left:50%; top:67%;"></div>
+                                        <div class="gacha-ball" style="background:#14b8a6; left:65%; top:70%;"></div>
+                                    </div>
+                                </div>
+                                <div class="gacha-control-panel">
+                                    <button class="gacha-handle" id="gachaHandleBtn" onclick="animateGachaKnob()">💫 หมุนตู้สุ่ม</button>
+                                    <div class="gacha-slot-hole">🎁</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="gacha-buttons-zone">
+                            <button class="btn-gacha-roll" onclick="rollGacha(1)">สุ่ม 1 ครั้ง (10 ฿)</button>
+                            <button class="btn-gacha-roll btn-gacha-multi" onclick="rollGacha(10)">สุ่ม 10 ครั้ง (90 ฿)</button>
+                        </div>
+                    </div>
+
+                    <div class="gacha-skins-owned-section">
+                        <h3>🖼️ สกินที่คุณครอบครองแล้ว (<span id="gachaSkinsCount">0</span> / 50)</h3>
+                        <div class="gacha-skins-grid" id="gachaSkinsGrid">
+                            <!-- JS Inject skins -->
+                        </div>
+                    </div>
+                </div>
+            </section>
         </main>
     </div>
 
@@ -679,6 +760,19 @@
             <h2 class="payment-title" id="paymentModalTitle">ธุรกรรมระบบเรียน</h2>
             <div class="payment-body" id="paymentModalBody">
                 <!-- Dynamic Content -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Gacha Result Modal -->
+    <div class="gacha-result-overlay" id="gachaResultOverlay" style="display: none;">
+        <div class="gacha-result-card">
+            <h2 class="gacha-result-title">💫 ผลการสุ่ม Gachapon 💫</h2>
+            <div class="gacha-result-list" id="gachaResultList">
+                <!-- dynamic result cards -->
+            </div>
+            <div style="text-align: center; margin-top: 1.5rem;">
+                <button class="btn-primary" onclick="closeGachaResultModal()" style="width: 100%; max-width: 200px;">ตกลง</button>
             </div>
         </div>
     </div>

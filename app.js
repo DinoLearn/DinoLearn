@@ -456,6 +456,166 @@ const EXAMS_DATABASE = [
             { q: "จังหวัดใดต่อไปนี้ไม่ได้ตั้งอยู่ในภาคตะวันออก?", c: ["ชลบุรี", "จันทบุรี", "ตราด", "ราชบุรี"], a: 3 },
             { q: "เกาะใดที่มีชื่อเสียงของจังหวัดตราดและใหญ่เป็นอันดับสองรองจากภูเก็ตในฝั่งอ่าวไทย?", c: ["เกาะเสม็ด", "เกาะล้าน", "เกาะช้าง", "เกาะพะงัน"], a: 2 }
         ]
+    },
+    // --- A-Level Mathematics 1 ---
+    {
+        id: "alevel_math1",
+        title: "A-Level คณิตศาสตร์ประยุกต์ 1",
+        desc: "เน้นคณิตศาสตร์เพิ่มเติมและพื้นฐาน สำหรับสายวิทย์และศิลป์คำนวณ",
+        rewardType: "raw_ore",
+        category: "central",
+        questions: [
+            { q: "เซต A = {1, 2, 3} และ B = {2, 3, 4} จงหาจำนวนสมาชิกของพาวเวอร์เซต P(A - B)", c: ["1 ตัว", "2 ตัว", "4 ตัว", "8 ตัว", "16 ตัว"], a: 1 },
+            { q: "กำหนดให้ p เป็นประพจน์ที่มีค่าความจริงเป็นจริง และ q เป็นประพจน์ที่มีค่าความจริงเป็นเท็จ ประพจน์ใดต่อไปนี้มีค่าความจริงเป็นจริง", c: ["p ∧ q", "p → q", "~p ∨ q", "p ↔ q", "p ∨ q"], a: 4 },
+            { q: "ผลบวกของราก (คำตอบ) ทั้งหมดของสมการ x² - 7x + 12 = 0 เท่ากับเท่าใด", c: ["5", "6", "7", "8", "12"], a: 2 },
+            { q: "จงหาค่าของลิมิต lim (x → 3) (x² - 9) / (x - 3)", c: ["3", "6", "0", "หาค่าไม่ได้", "9"], a: 1 },
+            { q: "โยนลูกเต๋าเที่ยงตรง 1 ลูก 2 ครั้ง ความน่าจะเป็นที่ผลรวมแต้มเท่ากับ 7 คือเท่าใด", c: ["1/6", "1/12", "5/36", "7/36", "1/2"], a: 0 },
+            { q: "ลำดับเลขคณิต 3, 7, 11, 15, ... พจน์ที่ 20 คือจำนวนใด", c: ["75", "79", "83", "87", "91"], a: 1 },
+            { q: "ค่าของ sin²(30°) + cos²(30°) เท่ากับเท่าใด", c: ["0.5", "0.75", "1", "1.25", "1.5"], a: 2 },
+            { q: "เมทริกซ์ A = [[1, 2], [3, 4]] จงหาดีเทอร์มิแนนต์ det(A)", c: ["-2", "2", "-10", "10", "0"], a: 0 },
+            { q: "ข้อมูลชุดหนึ่งมี 5 จำนวน ได้แก่ 3, 5, 7, 9, 11 ค่าเฉลี่ยเลขคณิตเท่ากับเท่าใด", c: ["5", "6", "7", "8", "9"], a: 2 },
+            { q: "จงหาค่าของอินทิกรัลจำกัดเขต ∫ (จาก 0 ถึง 2) 3x² dx", c: ["4", "6", "8", "12", "16"], a: 2 }
+        ]
+    },
+    // --- A-Level Mathematics 2 ---
+    {
+        id: "alevel_math2",
+        title: "A-Level คณิตศาสตร์ประยุกต์ 2",
+        desc: "คณิตศาสตร์พื้นฐานสำหรับสายศิลป์และทั่วไป เน้นการประยุกต์ใช้ในชีวิตประจำวัน",
+        rewardType: "raw_ore",
+        category: "central",
+        questions: [
+            { q: "ถ้าซื้อสินค้าราคาปกติ 1,200 บาท ได้รับส่วนลด 15% จะต้องจ่ายเงินกี่บาท", c: ["1,000 บาท", "1,020 บาท", "1,050 บาท", "1,080 บาท", "1,100 บาท"], a: 1 },
+            { q: "เซต A มีสมาชิก 4 ตัว เซต B มีสมาชิก 3 ตัว ถ้า A และ B ไม่มีสมาชิกร่วมกันเลย สมาชิกของ A ∪ B มีกี่ตัว", c: ["3 ตัว", "4 ตัว", "7 ตัว", "12 ตัว", "1 ตัว"], a: 2 },
+            { q: "ฝากเงินต้น 10,000 บาท อัตราดอกเบี้ยทบต้น 2% ต่อปี เมื่อฝากครบ 2 ปี จะได้รับเงินรวมเท่าใด", c: ["10,400 บาท", "10,404 บาท", "10,200 บาท", "10,500 บาท", "10,800 บาท"], a: 1 },
+            { q: "ค่ามัธยฐานของชุดข้อมูล 12, 15, 10, 18, 14 คือค่าใด", c: ["10", "12", "14", "15", "18"], a: 2 },
+            { q: "ครอบครัวหนึ่งต้องการมีบุตร 2 คน ความน่าจะเป็นที่จะมีบุตรเป็นชายอย่างน้อย 1 คนคือเท่าใด", c: ["1/4", "1/2", "3/4", "1", "1/3"], a: 2 },
+            { q: "เลขยกกำลัง 2⁵ มีค่าเท่ากับเท่าใด", c: ["10", "16", "25", "32", "64"], a: 3 },
+            { q: "ผลบวกของอนุกรม 1 + 3 + 5 + 7 + 9 มีผลรวมเท่ากับเท่าใด", c: ["20", "25", "30", "35", "40"], a: 1 },
+            { q: "อัตราส่วนนักเรียนชายต่อนักเรียนหญิงในห้องเรียนคือ 3 : 2 ถ้านักเรียนหญิงมี 12 คน นักเรียนชายจะมีกี่คน", c: ["15 คน", "18 คน", "20 คน", "24 คน", "30 คน"], a: 1 },
+            { q: "ข้อใดคือฐานนิยมของข้อมูล 5, 8, 5, 9, 8, 5, 7", c: ["5", "7", "8", "9", "ไม่มีฐานนิยม"], a: 0 },
+            { q: "ส่วนเบี่ยงเบนมาตรฐานคือค่าที่ใช้วัดคุณลักษณะใดของข้อมูล", c: ["การวัดค่ากลาง", "การกระจายของข้อมูล", "ตำแหน่งของข้อมูล", "ความชันของข้อมูล", "ความน่าจะเป็นของข้อมูล"], a: 1 }
+        ]
+    },
+    // --- A-Level Physics ---
+    {
+        id: "alevel_physics",
+        title: "A-Level ฟิสิกส์",
+        desc: "ทบทวนกลศาสตร์ คลื่น แสง ไฟฟ้า และฟิสิกส์แผนใหม่",
+        rewardType: "raw_leaves",
+        category: "central",
+        questions: [
+            { q: "วัตถุมวล 2 kg เคลื่อนที่ด้วยความเร่ง 5 m/s² จะมีแรงลัพธ์กระทำต่อวัตถุกี่นิวตัน", c: ["2.5 N", "7 N", "10 N", "25 N", "50 N"], a: 2 },
+            { q: "รถยนต์เคลื่อนที่จากหยุดนิ่งด้วยความเร่งคงตัว 2 m/s² เมื่อเวลาผ่านไป 4 วินาที รถจะมีความเร็วกี่ m/s", c: ["2 m/s", "4 m/s", "6 m/s", "8 m/s", "10 m/s"], a: 3 },
+            { q: "เสียงสามารถเดินทางได้เร็วที่สุดในตัวกลางสถานะใด", c: ["ของแข็ง", "ของเหลว", "แก๊ส", "สุญญากาศ", "เท่ากันทุกสถานะ"], a: 0 },
+            { q: "เครื่องใช้ไฟฟ้าขนาด 1,000 วัตต์ เปิดใช้งานนาน 2 ชั่วโมง จะใช้พลังงานไฟฟ้าไปกี่ยูนิต (หน่วย)", c: ["0.5 ยูนิต", "1 ยูนิต", "2 ยูนิต", "4 ยูนิต", "2,000 ยูนิต"], a: 2 },
+            { q: "ข้อใดอธิบายการเดินทางของแสงจากน้ำ (ดัชนีหักเห 1.33) ไปสู่อากาศได้ถูกต้อง", c: ["แสงเบนเข้าหาเส้นแนวฉาก", "แสงเบนออกจากเส้นแนวฉาก", "แสงเดินทางเป็นเส้นตรงไม่เบน", "แสงสะท้อนกลับหมดเสมอ", "แสงมีความเร็วเพิ่มขึ้นและเบนเข้าหาเส้นแนวฉาก"], a: 1 },
+            { q: "ตามทฤษฎีควอนตัม พลังงานของโฟตอนแปรผันตรงกับปริมาณใด", c: ["ความยาวคลื่น", "ความถี่", "อัตราเร็ว", "ความเข้มแสง", "แอมพลิจูด"], a: 1 },
+            { q: "วัตถุตกแบบเสรีในสุญญากาศ ปริมาณใดคงตัวตลอดการเคลื่อนที่", c: ["ความเร็ว", "ตำแหน่ง", "ความเร่ง", "พลังงานจลน์", "แรงต้านอากาศ"], a: 2 },
+            { q: "อุณหภูมิ 0 องศาเซลเซียส เทียบเท่ากับกี่เคลวิน (K)", c: ["0 K", "100 K", "273 K", "373 K", "-273 K"], a: 2 },
+            { q: "ตัวนำไฟฟ้าที่ดีที่สุดภายใต้สภาวะอุณหภูมิห้องปกติคือข้อใด", c: ["ทองแดง", "เงิน", "ทองคำ", "อลูมิเนียม", "เหล็ก"], a: 1 },
+            { q: "คลื่นแม่เหล็กไฟฟ้าชนิดใดมีความถี่สูงที่สุด", c: ["รังสีแกมมา", "รังสีเอกซ์", "รังสีอัลตราไวโอเลต", "ไมโครเวฟ", "คลื่นวิทยุ"], a: 0 }
+        ]
+    },
+    // --- A-Level Chemistry ---
+    {
+        id: "alevel_chemistry",
+        title: "A-Level เคมี",
+        desc: "ทบทวนโครงสร้างอะตอม พันธะเคมี ปฏิกิริยาเคมี และตารางธาตุ",
+        rewardType: "raw_leaves",
+        category: "central",
+        questions: [
+            { q: "ธาตุที่เป็นแก๊สเฉื่อย (Noble Gas) อยู่ในหมู่ใดของตารางธาตุ", c: ["หมู่ IA", "หมู่ IIA", "หมู่ VIIA", "หมู่ VIIIA", "หมู่ทรานซิชัน"], a: 3 },
+            { q: "พันธะเคมีที่เกิดจากการใช้เวเลนซ์อิเล็กตรอนร่วมกันระหว่างอโลหะกับอโลหะคือพันธะใด", c: ["พันธะไอออนิก", "พันธะโควาเลนต์", "พันธะโลหะ", "พันธะไฮโดรเจน", "แรงแวนเดอร์วาลส์"], a: 1 },
+            { q: "สารใดต่อไปนี้จัดเป็นสารละลายกรดแก่", c: ["HCl (กรดไฮโดรคลอริก)", "CH3COOH (กรดแอซีติก)", "NH3 (แอมโมเนีย)", "NaOH (โซเดียมไฮดรอกไซด์)", "H2O (น้ำบริสุทธิ์)"], a: 0 },
+            { q: "คาร์บอน (C) มีเลขอะตอมเท่ากับ 6 จะมีเวเลนซ์อิเล็กตรอนกี่ตัว", c: ["2 ตัว", "4 ตัว", "6 ตัว", "8 ตัว", "12 ตัว"], a: 1 },
+            { q: "ปฏิกิริยาสะเทินระหว่างกรดและเบสจะได้ผลิตภัณฑ์หลักเป็นสารใด", c: ["เกลือและน้ำ", "กรดและแก๊สไฮโดรเจน", "เบสและแก๊สออกซิเจน", "ตะกอนโลหะ", "สารละลายบัฟเฟอร์เท่านั้น"], a: 0 },
+            { q: "สารละลายที่มีปริมาณตัวละลายอยู่มากจนไม่สามารถละลายเพิ่มได้อีกที่อุณหภูมินั้นเรียกว่าอะไร", c: ["สารละลายเจือจาง", "สารละลายเข้มข้น", "สารละลายอิ่มตัว", "สารละลายคอลลอยด์", "สารละลายแขวนลอย"], a: 2 },
+            { q: "ธาตุแทรนซิชันมีลักษณะเด่นประการใดที่แตกต่างจากธาตุเรพรีเซนเททีฟ", c: ["มีเลขออกซิเดชันค่าเดียวเสมอ", "มักเกิดสารประกอบที่มีสีสันหลากหลาย", "ทำปฏิกิริยากับน้ำอย่างรุนแรง", "เป็นอโลหะทั้งหมด", "ไม่มีสถานะเป็นของแข็ง"], a: 1 },
+            { q: "อุปกรณ์ชิ้นใดในห้องปฏิบัติการเคมีที่ใช้วัดและถ่ายโอนปริมาตรของของเหลวได้แม่นยำที่สุด", c: ["บีกเกอร์", "กระบอกตวง", "ปิเปต", "ขวดรูปกรวย", "ถ้วยยูเรกา"], a: 2 },
+            { q: "ตัวเร่งปฏิกิริยา (Catalyst) มีผลต่อปฏิกิริยาเคมีอย่างไร", c: ["เพิ่มพลังงานกระตุ้น", "ลดพลังงานกระตุ้นและทำให้ปฏิกิริยาเกิดเร็วขึ้น", "เพิ่มปริมาณสารตั้งต้น", "ทำให้ปฏิกิริยาดูดความร้อนมากขึ้น", "เปลี่ยนสถานะของผลิตภัณฑ์"], a: 1 },
+            { q: "โมล (Mole) คือหน่วยที่ใช้วัดปริมาณใดในระบบหน่วยสากลทางเคมี", c: ["มวลของสาร", "ความเข้มข้นของสาร", "ปริมาณสาร (จำนวนอนุภาค)", "ปริมาตรของแก๊ส", "ความดันของแก๊ส"], a: 2 }
+        ]
+    },
+    // --- A-Level Biology ---
+    {
+        id: "alevel_biology",
+        title: "A-Level ชีววิทยา",
+        desc: "ทบทวนเซลล์ พันธุศาสตร์ ระบบร่างกายของสัตว์และพืช และระบบนิเวศ",
+        rewardType: "raw_leaves",
+        category: "central",
+        questions: [
+            { q: "ออร์แกเนลล์ใดทำหน้าที่หลักเป็นแหล่งสร้างพลังงาน (ATP) ให้แก่เซลล์", c: ["ไรโบโซม", "ไมโทคอนเดรีย", "คลอโรพลาสต์", "ไลโซโซม", "กอลจิบอดี"], a: 1 },
+            { q: "โครงสร้างใดต่อไปนี้ที่พบเฉพาะในเซลล์พืช แต่ไม่พบในเซลล์สัตว์", c: ["นิวเคลียส", "เยื่อหุ้มเซลล์", "ผนังเซลล์และคลอโรพลาสต์", "ไมโทคอนเดรีย", "ไซโทพลาซึม"], a: 2 },
+            { q: "นักวิทยาศาสตร์ท่านใดได้รับการยกย่องว่าเป็น 'บิดาแห่งวิชาพันธุศาสตร์'", c: ["ชาลส์ ดาร์วิน", "เกรเกอร์ เมนเดล", "หลุยส์ ปาสเตอร์", "อเล็กซานเดอร์ เฟลมมิง", "โรเบิร์ต ฮุก"], a: 1 },
+            { q: "ส่วนใดของระบบทางเดินอาหารมนุษย์ที่มีบทบาทในการดูดซึมสารอาหารมากที่สุด", c: ["กระเพาะอาหาร", "ปาก", "ลำไส้เล็ก", "ลำไส้ใหญ่", "ตับอ่อน"], a: 2 },
+            { q: "การแบ่งเซลล์แบบไมโอซิส (Meiosis) มีจุดประสงค์หลักเพื่ออะไร", c: ["เพื่อการเจริญเติบโตของร่างกาย", "เพื่อสร้างเซลล์สืบพันธุ์", "เพื่อซ่อมแซมส่วนที่สึกหรอ", "เพื่อเพิ่มจำนวนเซลล์ร่างกาย", "เพื่อสร้างเนื้อเยื่อใหม่"], a: 1 },
+            { q: "แก๊สคาร์บอนไดออกไซด์ในร่างกายมนุษย์ถูกลำเลียงออกจากเนื้อเยื่อไปยังปอดส่วนใหญ่ในรูปของสารใด", c: ["แก๊สคาร์บอนไดออกไซด์อิสระ", "จับกับฮีโมโกลบิน", "ไฮโดรเจนคาร์บอเนตไอออน (HCO3-)", "กรดคาร์บอนิกในพลาสมา", "คาร์บอนิกแอนไฮเดรส"], a: 2 },
+            { q: "ฮอร์โมนอินซูลินถูกสร้างจากอวัยวะใดและทำหน้าที่สำคัญอย่างไร", c: ["สร้างจากตับ - เพิ่มระดับน้ำตาลในเลือด", "สร้างจากตับอ่อน - ลดระดับน้ำตาลในเลือด", "สร้างจากต่อมหมวกไต - กระตุ้นชีพจร", "สร้างจากต่อมใต้สมอง - กระตุ้นการโต", "สร้างจากรังไข่ - พัฒนาลักษณะเพศหญิง"], a: 1 },
+            { q: "พืชดูดน้ำและแร่ธาตุขึ้นไปลำเลียงผ่านทางเนื้อเยื่อท่อลำเลียงใด", c: ["ไซเลม (Xylem)", "โฟลเอ็ม (Phloem)", "ปากใบ (Stomata)", "คลอโรฟิลล์ (Chlorophyll)", "คอร์เทกซ์ (Cortex)"], a: 0 },
+            { q: "ในการถ่ายทอดพลังงานในโซ่อาหาร พลังงานจะสูญเสียไปกี่เปอร์เซ็นต์ในแต่ละลำดับขั้น (กฎ 10%)", c: ["10%", "50%", "90%", "0%", "100%"], a: 2 },
+            { q: "สารชีวโมเลกุลที่เป็นสารพันธุกรรมหลักของสิ่งมีชีวิตเกือบทั้งหมดคือข้อใด", c: ["RNA", "DNA", "โปรตีน", "คาร์โบไฮเดรต", "ลิพิด"], a: 1 }
+        ]
+    },
+    // --- A-Level English ---
+    {
+        id: "alevel_english",
+        title: "A-Level ภาษาอังกฤษ",
+        desc: "เน้นบทสนทนา ไวยากรณ์ คำศัพท์ และการอ่านจับใจความ",
+        rewardType: "raw_crystal",
+        category: "central",
+        questions: [
+            { q: "Situation: A friend says, 'I passed my driving test!' What is the best response?", c: ["Congratulations!", "What a shame!", "Never mind.", "Good luck next time.", "Are you sure?"], a: 0 },
+            { q: "If it ___ rain tomorrow, we will go for a picnic in the park.", c: ["doesn't", "don't", "won't", "didn't", "isn't"], a: 0 },
+            { q: "Identify the synonym of the word 'ANCIENT'.", c: ["Modern", "Beautiful", "Old", "Futuristic", "Expensive"], a: 2 },
+            { q: "She has been working at this school ___ five years.", c: ["since", "for", "during", "ago", "until"], a: 1 },
+            { q: "The news about the road accident ___ shocking.", c: ["are", "is", "were", "be", "being"], a: 1 },
+            { q: "He is looking forward to ___ his grandparents next week.", c: ["visit", "visiting", "visited", "visits", "to visit"], a: 1 },
+            { q: "Which of the following words is spelled correctly?", c: ["Recieve", "Receive", "Receve", "Ricieve", "Receivee"], a: 1 },
+            { q: "Situation: You accidentally bumped into someone in a shop. What should you say?", c: ["Excuse me.", "Pardon?", "I'm sorry.", "No problem.", "Watch out!"], a: 2 },
+            { q: "The weather was very bad, ___ they decided to cancel the match.", c: ["but", "so", "because", "although", "yet"], a: 1 },
+            { q: "What is the antonym of the word 'GENEROUS'?", c: ["Kind", "Mean", "Happy", "Polite", "Helpful"], a: 1 }
+        ]
+    },
+    // --- A-Level Thai ---
+    {
+        id: "alevel_thai",
+        title: "A-Level ภาษาไทย",
+        desc: "ทบทวนหลักภาษา การสะกดคำ การอ่านจับใจความ และการวิเคราะห์ข้อความ",
+        rewardType: "raw_berry",
+        category: "central",
+        questions: [
+            { q: "คำในข้อใดสะกดถูกต้องตามพจนานุกรมทุกคำ", c: ["กระเพาะ, สังเกต", "อนุญาติ, กฎหมาย", "ปะทะ, โอกาศ", "สัมนา, อนาคต", "ไอศครีม, ปรากฏ"], a: 0 },
+            { q: "'เขารู้สึกเสียหน้ามากที่ลืมบทกลางเวที' คำว่า 'เสียหน้า' จัดเป็นภาษาในระดับใด", c: ["ภาษาทางการ", "ภาษากึ่งทางการ", "ภาษาปาก (พูด)", "ภาษาเขียน", "ภาษาบาลี"], a: 2 },
+            { q: "ข้อใดเป็นคำสมาสที่มีการออกเสียงเชื่อมคำแบบสนธิ", c: ["พลศึกษา", "ราชการ", "วิทยาศาสตร์", "มหาลัย (มหาวิทยาลัย)", "ประชาธิปไตย"], a: 4 },
+            { q: "ประโยคใดต่อไปนี้จัดเป็นประโยคความซ้อน (สังกรประโยค)", c: ["ฝนตกหนักแต่ลมสงบ", "ฉันชอบกินข้าวเหนียวมะม่วง", "ครูชมเชยนักเรียนที่ตั้งใจเรียน", "พ่อและแม่ไปตลาดเช้า", "เขาร้องเพลงเสียงดังมาก"], a: 2 },
+            { q: "สำนวนไทยใดมีความหมายตรงกับคำกล่าวที่ว่า 'การพูดจาติเตียนหรือนินทาผู้อื่นลับหลัง'", c: ["พูดเป็นต่อยหอย", "ปลาหมอตายเพราะปาก", "ปากหอยปากปู", "พูดดีเป็นศรีแก่ปาก", "ชักใบให้เรือเสีย"], a: 2 },
+            { q: "คำสรรพนามหรือคำกริยาราชาศัพท์ของคำว่า 'กิน' สำหรับพระมหากษัตริย์คือข้อใด", c: ["เสวย", "เสด็จ", "ทรงพระเครื่อง", "พระราชทาน", "ทรงงาน"], a: 0 },
+            { q: "วรรณคดีเรื่อง 'ขุนช้างขุนแผน' แต่งด้วยคำประพันธ์ประเภทใดเป็นหลักสำคัญ", c: ["กลอนสุภาพ", "กลอนเสภา", "โคลงสี่สุภาพ", "ร่ายสุภาพ", "กาพย์ยานี 11"], a: 1 },
+            { q: "คำในข้อใดจัดเป็นคำควบกล้ำแท้ทั้งหมด", c: ["จริง, สร้อย", "ทรุด, โทรม", "ปรับ, ปรุง", "สร้าง, ทรง", "เสร็จ, ทราย"], a: 2 },
+            { q: "ข้อความประเภทใดจัดเป็นสารที่มีจุดประสงค์เพื่อการโน้มน้าวใจ", c: ["รายงานวิจัยวิทยาศาสตร์", "โฆษณาขายสินค้า", "ข่าวอุบัติเหตุทางถนน", "คู่มือการใช้งานเครื่องซักผ้า", "พจนานุกรมฉบับราชบัณฑิตยสถาน"], a: 1 },
+            { q: "สุภาษิต 'น้ำพึ่งเรือเสือพึ่งป่า' สอนใจให้ตระหนักถึงคุณค่าในเรื่องใดมากที่สุด", c: ["การกตัญญูต่อผู้มีพระคุณ", "การพึ่งพาอาศัยกันและกัน", "การเตรียมพร้อมรับมืออันตราย", "การระมัดระวังคำพูด", "การรักษาสิ่งแวดล้อม"], a: 1 }
+        ]
+    },
+    // --- A-Level Social Studies ---
+    {
+        id: "alevel_social",
+        title: "A-Level สังคมศึกษา",
+        desc: "ทบทวนความรู้ด้านศาสนา หน้าที่พลเมือง เศรษฐศาสตร์ ประวัติศาสตร์ และภูมิศาสตร์",
+        rewardType: "raw_berry",
+        category: "central",
+        questions: [
+            { q: "วันสำคัญทางพระพุทธศาสนาวันใดที่เกิดเหตุการณ์โอวาทปาติโมกข์และพระสงฆ์ 1,250 รูปมาประชุมกันโดยมิได้นัดหมาย", c: ["วันวิสาขบูชา", "วันมาฆบูชา", "วันอาสาฬหบูชา", "วันเข้าพรรษา", "วันออกพรรษา"], a: 1 },
+            { q: "กฎหมายสูงสุดที่กำหนดโครงสร้างการปกครองของประเทศไทยคือข้อใด", c: ["ประมวลกฎหมายอาญา", "ประมวลกฎหมายแพ่งและพาณิชย์", "รัฐธรรมนูญ", "พระราชบัญญัติ", "พระราชกำหนด"], a: 2 },
+            { q: "ระบบเศรษฐกิจแบบใดที่รัฐบาลควบคุมจัดสรรการผลิตและการกระจายทรัพยากรทั้งหมด", c: ["ระบบทุนนิยม", "ระบบสังคมนิยม/คอมมิวนิสต์", "ระบบเศรษฐกิจแบบผสม", "ระบบเศรษฐกิจพอเพียง", "ระบบการค้าเสรี"], a: 1 },
+            { q: "สงครามโลกครั้งที่สองยุติลงอย่างเป็นทางการภายหลังจากเกิดเหตุการณ์ใด", c: ["การล่มสลายของกำแพงเบอร์ลิน", "การทิ้งระเบิดปรมาณูที่ฮิโรชิมาและนางาซากิ", "การลงนามในสนธิสัญญาแวร์ซายส์", "การปฏิวัติอุตสาหกรรม", "การยกพลขึ้นบกที่นอร์มังดี"], a: 1 },
+            { q: "ปรากฏการณ์สภาพอากาศ 'เอลนีโญ' (El Niño) ส่งผลกระทบโดยตรงต่อภูมิอากาศของประเทศไทยอย่างไร", c: ["ทำให้เกิดฝนตกชุกและน้ำท่วมเฉียบพลัน", "ทำให้เกิดสภาวะภัยแล้งและปริมาณฝนลดลงอย่างรวดเร็ว", "ทำให้เกิดพายุหิมะตกในภาคเหนือ", "ทำให้ลมมรสุมพัดแรงขึ้นผิดปกติ", "ไม่ส่งผลกระทบใดๆ ต่อไทย"], a: 1 },
+            { q: "องค์การสหประชาชาติ (UN) มีสำนักงานใหญ่ตั้งอยู่ที่นครใด", c: ["ลอนดอน", "ปารีส", "นิวยอร์ก", "เจนีวา", "โตเกียว"], a: 2 },
+            { q: "ราชธานีโบราณในประวัติศาสตร์ชาติไทยยุคใดที่มีอายุยืนยาวที่สุด", c: ["สุโขทัย", "อยุธยา", "ธนบุรี", "รัตนโกสินทร์ (ก่อน พ.ศ. 2500)", "ศรีวิชัย"], a: 1 },
+            { q: "จุดตัดระหว่างเส้นอุปสงค์ (Demand) และอุปทาน (Supply) ที่กำหนดราคาสินค้าในตลาดเรียกว่าอะไร", c: ["จุดสูงสุดของราคา", "จุดต่ำสุดของราคา", "จุดดุลยภาพ", "จุดขาดแคลนสินค้า", "จุดสินค้าล้นตลาด"], a: 2 },
+            { q: "ข้อใดจัดเป็นแหล่งโบราณสถานที่ได้รับการขึ้นทะเบียนเป็นมรดกโลกทางวัฒนธรรมแห่งแรกๆ ของไทย", c: ["อุทยานประวัติศาสตร์สุโขทัยและเมืองบริวาร", "พระบรมมหาราชวังและวัดพระศรีรัตนศาสดาราม", "ปราสาทสัจจะธรรม", "สะพานข้ามแม่น้ำแคว", "พระปฐมเจดีย์"], a: 0 },
+            { q: "เส้นสมมติแนวนอนบนแผนที่โลกที่ใช้แบ่งเขตโลกเหนือและใต้คือเส้นใด", c: ["เส้นเมอริเดียนแรก", "เส้นศูนย์สูตร (Equator)", "เส้นทรอปิกออฟแคนเซอร์", "เส้นทรอปิกออฟแคปริคอร์น", "เส้นละติจูด 90 องศา"], a: 1 }
+        ]
     }
 ];
 
@@ -503,7 +663,13 @@ const CRAFTED_ITEMS = {
     grilled_fish: { name: "ย่างรวมทะเลบก", emoji: "🍢", desc: "ผสมจาก ปลา + เนื้อ รวมโปรตีนสุดปัง", formula: ["raw_fish", "raw_meat"] },
     crystal_potion: { name: "ยาพลังคริสตัล", emoji: "🧪", desc: "ผสมจาก คริสตัล + คริสตัล พลังไซบอร์กสุดล้ำ", formula: ["raw_crystal", "raw_crystal"] },
     berry_crystal: { name: "เจลลี่เพชรเรืองแสง", emoji: "🍮", desc: "ผสมจาก เบอร์รี่ + คริสตัล พลังวิวัฒนาการ", formula: ["raw_berry", "raw_crystal"] },
-    mushroom_steak: { name: "สเต็กเห็ดทรัฟเฟิล", emoji: "🥘", desc: "ผสมจาก เห็ด + เนื้อ อาหารพรีเมียมสุดๆ", formula: ["raw_mushroom", "raw_meat"] }
+};
+
+const POTION_ITEMS = {
+    potion_hunger: { name: "น้ำยาเพิ่มความอิ่ม", emoji: "🧪🍖", desc: "เพิ่มค่าความอิ่มของไดโนเสาร์ +50" },
+    potion_mood: { name: "น้ำยาเพิ่มความสุข", emoji: "🧪💖", desc: "เพิ่มค่าความสุขของไดโนเสาร์ +50" },
+    potion_exp: { name: "น้ำยาเพิ่ม EXP", emoji: "🧪✨", desc: "เพิ่มค่า EXP ของไดโนเสาร์ +30" },
+    potion_exam: { name: "น้ำยาเพิ่มสิทธิ์สอบ", emoji: "🧪📝", desc: "รีเซ็ตโควตาการทำข้อสอบรายวันเป็น 0/100 ข้อ" }
 };
 
 
@@ -651,12 +817,18 @@ function performLogin(username, userRecord) {
     if (savedState) {
         try {
             state = JSON.parse(savedState);
-            if (!state.inventory) state.inventory = { raw_leaves: 2, raw_meat: 2, raw_berry: 1, raw_ore: 1, raw_mushroom: 0, raw_fish: 0, raw_crystal: 0, salad_premium: 0, steak_perfect: 0, soup_mix: 0, magma_fruit: 0, mushroom_soup: 0, sashimi_deluxe: 0, grilled_fish: 0, crystal_potion: 0, berry_crystal: 0, mushroom_steak: 0 };
+            if (!state.inventory) state.inventory = { raw_leaves: 2, raw_meat: 2, raw_berry: 1, raw_ore: 1, raw_mushroom: 0, raw_fish: 0, raw_crystal: 0, salad_premium: 0, steak_perfect: 0, soup_mix: 0, magma_fruit: 0, mushroom_soup: 0, sashimi_deluxe: 0, grilled_fish: 0, crystal_potion: 0, berry_crystal: 0, mushroom_steak: 0, potion_hunger: 0, potion_mood: 0, potion_exp: 0, potion_exam: 0 };
+            if (state.inventory.potion_hunger === undefined) state.inventory.potion_hunger = 0;
+            if (state.inventory.potion_mood === undefined) state.inventory.potion_mood = 0;
+            if (state.inventory.potion_exp === undefined) state.inventory.potion_exp = 0;
+            if (state.inventory.potion_exam === undefined) state.inventory.potion_exam = 0;
             if (!state.streak) state.streak = { count: 1, lastActiveDate: Date.now() };
             if (!state.examLimit) state.examLimit = { count: 0, lastResetDate: Date.now() };
             if (state.wallet === undefined) state.wallet = 100;
             if (state.studyTime === undefined) state.studyTime = 0;
             if (state.dinoCollection === undefined) state.dinoCollection = [];
+            if (state.ownedSkins === undefined) state.ownedSkins = [];
+            if (state.equippedSkin === undefined) state.equippedSkin = null;
         } catch(e) {
             console.error("Error loading user state", e);
         }
@@ -760,7 +932,11 @@ let state = {
         grilled_fish: 0,
         crystal_potion: 0,
         berry_crystal: 0,
-        mushroom_steak: 0
+        mushroom_steak: 0,
+        potion_hunger: 0,
+        potion_mood: 0,
+        potion_exp: 0,
+        potion_exam: 0
     },
     streak: {
         count: 1,
@@ -772,7 +948,9 @@ let state = {
     },
     wallet: 100,
     studyTime: 0,
-    dinoCollection: []
+    dinoCollection: [],
+    ownedSkins: [],
+    equippedSkin: null
 };
 
 // Load State from LocalStorage (legacy - now per-user via performLogin)
@@ -915,6 +1093,10 @@ function switchPage(pageId) {
         renderGroupMembersSelect();
     } else if (pageId === "reportPage") {
         renderReportList();
+    } else if (pageId === "shopPage") {
+        renderShopUI();
+    } else if (pageId === "gachaPage") {
+        renderGachaUI();
     }
 }
 
@@ -1098,12 +1280,12 @@ function renderExamHub() {
     updateWalletUI();
     const limitText = document.getElementById("examDailyLimitText");
     if (limitText) {
-        let text = `วันนี้ทำไปแล้ว: ${state.examLimit.count} / 40 ข้อ`;
+        let text = `วันนี้ทำไปแล้ว: ${state.examLimit.count} / 100 ข้อ`;
         if (state.examLimit.count > 0) {
             text += ` ⏳ (ฟื้นฟูโควตาฟรี: 1 ข้อ/นาที)`;
         }
         limitText.textContent = text;
-        if (state.examLimit.count >= 40) {
+        if (state.examLimit.count >= 100) {
             limitText.style.background = "rgba(239, 68, 68, 0.15)";
             limitText.style.borderColor = "rgba(239, 68, 68, 0.3)";
             limitText.style.color = "var(--danger)";
@@ -1198,7 +1380,7 @@ function renderExamQuestion() {
 
 function selectExamChoice(selectedIdx) {
     checkExamDailyLimitReset();
-    if (!activeExamState.isPaid && state.examLimit.count < 40) {
+    if (!activeExamState.isPaid && state.examLimit.count < 100) {
         state.examLimit.count++;
         saveState();
     }
@@ -1333,6 +1515,24 @@ function renderInventoryUI() {
         itemCard.addEventListener("click", () => feedDino(key));
         craftedContainer.appendChild(itemCard);
     });
+
+    // Render Potions
+    const potionsContainer = document.getElementById("potionsInventoryGrid");
+    if (potionsContainer) {
+        potionsContainer.innerHTML = "";
+        Object.entries(POTION_ITEMS).forEach(([key, meta]) => {
+            const qty = state.inventory[key] || 0;
+            const itemCard = document.createElement("div");
+            itemCard.className = "inv-item-card";
+            itemCard.innerHTML = `
+                <span class="inv-item-qty">${qty}</span>
+                <span class="inv-item-emoji">${meta.emoji}</span>
+                <span class="inv-item-name">${meta.name}</span>
+            `;
+            itemCard.addEventListener("click", () => usePotion(key));
+            potionsContainer.appendChild(itemCard);
+        });
+    }
 }
 
 function feedDino(itemKey) {
@@ -1397,6 +1597,48 @@ function feedDino(itemKey) {
     updateDinoUI();
 
     showToast(`🍖 ป้อน ${RAW_ITEMS[itemKey]?.name || CRAFTED_ITEMS[itemKey]?.name} ให้ไดโนเสาร์เรียบร้อย!`, "success");
+}
+
+function usePotion(itemKey) {
+    if (state.dino.stage === "dead" && itemKey !== "potion_exam") {
+        showToast("⚠️ ไดโนเสาร์ของคุณเสียชีวิตแล้ว ต้องรีเซ็ตเริ่มเลี้ยงใหม่ก่อนใช้ยา!", "danger");
+        return;
+    }
+
+    if ((state.inventory[itemKey] || 0) <= 0) {
+        showToast("❌ คุณไม่มีไอเทมชิ้นนี้ในคลัง!", "danger");
+        return;
+    }
+
+    if (itemKey === "potion_hunger") {
+        state.dino.hunger = Math.min(100, state.dino.hunger + 50);
+        state.inventory[itemKey]--;
+        showToast("🧪 ใช้ยาน้ำเพิ่มความอิ่มสำเร็จ (+50 🍖)", "success");
+    } else if (itemKey === "potion_mood") {
+        state.dino.mood = Math.min(100, state.dino.mood + 50);
+        state.inventory[itemKey]--;
+        showToast("🧪 ใช้ยาน้ำเพิ่มความสุขสำเร็จ (+50 💖)", "success");
+    } else if (itemKey === "potion_exp") {
+        state.inventory[itemKey]--;
+        state.dino.exp += 30;
+        showToast("🧪 ใช้ยาน้ำเพิ่ม EXP สำเร็จ (+30 ✨)", "success");
+        if (state.dino.exp >= 100) {
+            state.dino.exp -= 100;
+            triggerEvolution();
+        }
+    } else if (itemKey === "potion_exam") {
+        state.inventory[itemKey]--;
+        state.examLimit.count = 0;
+        showToast("🧪 รีเซ็ตโควตาสิทธิ์การทำข้อสอบวันนี้เรียบร้อย! สามารถทำข้อสอบต่อได้ 100 ข้อ", "success");
+        const limitText = document.getElementById("examDailyLimitText");
+        if (limitText) {
+            limitText.textContent = `วันนี้ทำไปแล้ว: 0 / 100 ข้อ`;
+        }
+    }
+
+    saveState();
+    renderInventoryUI();
+    updateDinoUI();
 }
 
 function triggerEvolution() {
@@ -2289,7 +2531,12 @@ function updateDashboardUI() {
     
     const stageData = DINO_EVOLUTION_STAGES[state.dino.stage];
     document.getElementById("dashDinoStage").textContent = `ร่าง: ${stageData.label}`;
-    document.getElementById("dashDinoVisual").textContent = stageData.emoji;
+    if (state.equippedSkin && state.dino.stage !== "egg" && state.dino.stage !== "dead") {
+        const skinMeta = GACHA_SKINS.find(s => s.id === state.equippedSkin);
+        document.getElementById("dashDinoVisual").textContent = skinMeta ? skinMeta.emoji : stageData.emoji;
+    } else {
+        document.getElementById("dashDinoVisual").textContent = stageData.emoji;
+    }
     document.getElementById("dashDinoEmotion").textContent = state.dino.emotion;
 
     const emotionBadge = document.getElementById("dashDinoEmotion");
@@ -2330,7 +2577,12 @@ function updateDinoUI() {
 
     const meta = DINO_EVOLUTION_STAGES[stage];
     const sprite = document.getElementById("dinoRender");
-    sprite.textContent = meta.emoji;
+    if (state.equippedSkin && stage !== "egg" && stage !== "dead") {
+        const skinMeta = GACHA_SKINS.find(s => s.id === state.equippedSkin);
+        sprite.textContent = skinMeta ? skinMeta.emoji : meta.emoji;
+    } else {
+        sprite.textContent = meta.emoji;
+    }
     
     // Apply styling modifiers depending on emotion
     sprite.className = "dino-sprite-render";
@@ -2355,7 +2607,7 @@ function updateDinoUI() {
                     <p class="muted-text" style="margin-bottom: 1.5rem; font-size: 0.9rem;">เนื่องจากขาดการดูแลป้อนอาหารและไม่ได้เข้าใช้แอปเกินกำหนด</p>
                     <div style="display: flex; flex-direction: column; gap: 0.75rem; align-items: center; width: 100%;">
                         <button class="btn-primary" onclick="reviveDinoSystem()" style="background: linear-gradient(135deg, #10b981, #059669); border: none; box-shadow: 0 4px 15px rgba(16,185,129,0.3); font-weight:700; width: 100%; max-width: 280px; padding: 0.75rem 1rem;">
-                            💖 ชุบชีวิตร่างเดิม (ราคา 50 บาท)
+                            💖 ชุบชีวิตร่างเดิม (ชุบชีวิตฟรี)
                         </button>
                         <button class="btn-secondary" onclick="resetDinoSystem()" style="font-size: 0.8rem; padding: 0.5rem 1.2rem; border-color: rgba(255,255,255,0.15); color: var(--text-secondary); width: 100%; max-width: 280px;">
                             🥚 เริ่มฟักไข่ใบใหม่ (เริ่มใหม่ฟรี)
@@ -2549,6 +2801,14 @@ function updateWalletUI() {
     if (walletTextEl) {
         walletTextEl.textContent = `💰 กระเป๋าเงิน: ${state.wallet} บาท (เติมเงิน)`;
     }
+    const shopWalletEl = document.getElementById("shopWalletVal");
+    if (shopWalletEl) {
+        shopWalletEl.textContent = state.wallet;
+    }
+    const gachaWalletEl = document.getElementById("gachaWalletVal");
+    if (gachaWalletEl) {
+        gachaWalletEl.textContent = state.wallet;
+    }
 }
 
 // Show modal prompting user to pay for exam if quota limit exceeded
@@ -2718,22 +2978,15 @@ setInterval(() => {
     }
 }, 60000);
 
-// Revive the dead dinosaur by charging 50 Baht
+// Revive the dead dinosaur for free
 function reviveDinoSystem() {
-    if (state.wallet >= 50) {
-        state.wallet -= 50;
-        state.dino.stage = state.dino.previousStageBeforeDeath || "baby";
-        state.dino.emotion = "ดีใจ";
-        state.dino.hunger = 100;
-        state.dino.mood = 100;
-        saveState();
-        updateDinoUI();
-        updateWalletUI();
-        showToast("💖 ชุบชีวิตไดโนเสาร์คู่ใจสำเร็จแล้ว! ดูแลน้องให้ดีๆ นะครับ", "success");
-    } else {
-        showToast("❌ ยอดเงินจำลองไม่เพียงพอ! กรุณาเติมเงิน 50 บาทเพื่อทำการชุบชีวิต", "danger");
-        showTopUpModal();
-    }
+    state.dino.stage = state.dino.previousStageBeforeDeath || "baby";
+    state.dino.emotion = "ดีใจ";
+    state.dino.hunger = 100;
+    state.dino.mood = 100;
+    saveState();
+    updateDinoUI();
+    showToast("💖 ชุบชีวิตไดโนเสาร์คู่ใจสำเร็จแล้ว! ดูแลน้องให้ดีๆ นะครับ", "success");
 }
 
 // Render the collected mature dinosaurs
@@ -2765,4 +3018,356 @@ function renderDinoCollection() {
         `;
         grid.appendChild(card);
     });
+}
+
+// ========================================
+// 9. MODULE 5: SHOP & GACHAPON SKIN SYSTEM
+// ========================================
+
+const GACHA_SKINS = [
+    // --- ธรรมดา (Common) --- 15 skins
+    { id: "skin_1", name: "ไดโนนักรัก", emoji: "🦖💕", rarity: "Common" },
+    { id: "skin_2", name: "สเตโกซอรัสจอมป่วน", emoji: "🦕😜", rarity: "Common" },
+    { id: "skin_3", name: "เมฆาพเนจร", emoji: "🦕☁️", rarity: "Common" },
+    { id: "skin_4", name: "ผีน้อยแคสเปอร์", emoji: "👻🦕", rarity: "Common" },
+    { id: "skin_5", name: "นักดนตรีร็อค", emoji: "🎸🦕", rarity: "Common" },
+    { id: "skin_6", name: "ไดโนกะลาสี", emoji: "⚓🦖", rarity: "Common" },
+    { id: "skin_7", name: "นักดับเพลิงแรปเตอร์", emoji: "👩‍🚒🦕", rarity: "Common" },
+    { id: "skin_8", name: "สปอร์ตตี้เร็กซ์", emoji: "⚽🦖", rarity: "Common" },
+    { id: "skin_9", name: "ซานต้าคลอส", emoji: "🎅🦕", rarity: "Common" },
+    { id: "skin_10", name: "คลาวน์ตัวตลก", emoji: "🤡🦖", rarity: "Common" },
+    { id: "skin_11", name: "มัมมี่อียิปต์", emoji: "🩹🦖", rarity: "Common" },
+    { id: "skin_12", name: "ไดโนเสาร์ฮาวาย", emoji: "🌴🦕", rarity: "Common" },
+    { id: "skin_13", name: "แฟรงเกนสไตน์", emoji: "🧟‍♂️🦕", rarity: "Common" },
+    { id: "skin_14", name: "ศิลปินวาดรูป", emoji: "🎨🦖", rarity: "Common" },
+    { id: "skin_15", name: "แชมป์ทำอาหาร", emoji: "👨‍🍳🦖", rarity: "Common" },
+
+    // --- ไม่ธรรมดา (Uncommon) --- 12 skins
+    { id: "skin_16", name: "ดราก้อนฟรุ๊ต", emoji: "🐉🍇", rarity: "Uncommon" },
+    { id: "skin_17", name: "น้องส้มหยุด", emoji: "🍊🦕", rarity: "Uncommon" },
+    { id: "skin_18", name: "แตงโมแรปเตอร์", emoji: "🍉🦖", rarity: "Uncommon" },
+    { id: "skin_19", name: "ตำรวจพิทักษ์ป่า", emoji: "👮‍♂️🦖", rarity: "Uncommon" },
+    { id: "skin_20", name: "พยาบาลใจดี", emoji: "👩‍⚕️🦕", rarity: "Uncommon" },
+    { id: "skin_21", name: "นักโบราณคดี", emoji: "🤠🦕", rarity: "Uncommon" },
+    { id: "skin_22", name: "บานาน่าไดโน", emoji: "🍌🦖", rarity: "Uncommon" },
+    { id: "skin_23", name: "นักปั่นจักรยาน", emoji: "🚴‍♂️🦕", rarity: "Uncommon" },
+    { id: "skin_24", name: "ชาวสวนอินทรีย์", emoji: "👨‍🌾🦖", rarity: "Uncommon" },
+    { id: "skin_25", name: "นักสำรวจถ้ำ", emoji: "🧗‍♂️🦕", rarity: "Uncommon" },
+    { id: "skin_26", name: "ไดโนเสาร์พนักงานออฟฟิศ", emoji: "💼🦖", rarity: "Uncommon" },
+    { id: "skin_27", name: "ไดโนเสาร์นักร้องลูกทุ่ง", emoji: "🎤🦕", rarity: "Uncommon" },
+
+    // --- หายาก (Rare) --- 10 skins
+    { id: "skin_28", name: "ไดโนเสาร์ซากุระ", emoji: "🦕🌸", rarity: "Rare" },
+    { id: "skin_29", name: "ทีเร็กซ์คาวบอย", emoji: "🤠🦖", rarity: "Rare" },
+    { id: "skin_30", name: "อัศวินทีเร็กซ์", emoji: "🛡️🦖", rarity: "Rare" },
+    { id: "skin_31", name: "ไดโนเสาร์แอนตาร์กติกา", emoji: "🦕❄️", rarity: "Rare" },
+    { id: "skin_32", name: "นักสืบแรปเตอร์", emoji: "🔍🦖", rarity: "Rare" },
+    { id: "skin_33", name: "นางฟ้าทีเร็กซ์", emoji: "😇🦖", rarity: "Rare" },
+    { id: "skin_34", name: "แชมป์เปี้ยนทีเร็กซ์", emoji: "🏆🦖", rarity: "Rare" },
+    { id: "skin_35", name: "ดีเจสายตื๊ด", emoji: "🎧🦕", rarity: "Rare" },
+    { id: "skin_36", name: "โจรสลัดตาเดียว", emoji: "🏴‍☠️🦖", rarity: "Rare" },
+    { id: "skin_37", name: "ซูเปอร์สตาร์", emoji: "🌟🦖", rarity: "Rare" },
+
+    // --- พิเศษ (Epic) --- 8 skins
+    { id: "skin_38", name: "นีออนทีเร็กซ์", emoji: "🦖⚡", rarity: "Epic" },
+    { id: "skin_39", name: "โรโบแรปเตอร์", emoji: "🤖🦖", rarity: "Epic" },
+    { id: "skin_40", name: "ปีศาจแดงเพลิง", emoji: "😈🦖", rarity: "Epic" },
+    { id: "skin_41", name: "แฮกเกอร์ไซเบอร์", emoji: "💻🦕", rarity: "Epic" },
+    { id: "skin_42", name: "ปีศาจโครงกระดูก", emoji: "💀🦕", rarity: "Epic" },
+    { id: "skin_43", name: "นินจาซ่อนแอบ", emoji: "🥷🦖", rarity: "Epic" },
+    { id: "skin_44", name: "ซูเปอร์แมนแรปเตอร์", emoji: "🦸‍♂️🦖", rarity: "Epic" },
+    { id: "skin_45", name: "เพชฌฆาตมืด", emoji: "🖤🦖", rarity: "Epic" },
+
+    // --- ตำนาน (Legendary) --- 5 skins
+    { id: "skin_46", name: "ก็อตซิลล่าพ่นไฟ", emoji: "🦖🔥", rarity: "Legendary" },
+    { id: "skin_47", name: "มังกรทองคำ", emoji: "🐉✨", rarity: "Legendary" },
+    { id: "skin_48", name: "ราชาไดโนเสาร์", emoji: "👑🦖", rarity: "Legendary" },
+    { id: "skin_49", name: "มังกรอัญมณีสีรุ้ง", emoji: "🐉🌈", rarity: "Legendary" },
+    { id: "skin_50", name: "ไดโนเสาร์หุ่นยนต์สีทอง", emoji: "🦾🦕", rarity: "Legendary" }
+];
+
+function renderShopUI() {
+    updateWalletUI();
+    const grid = document.getElementById("shopGrid");
+    if (!grid) return;
+
+    let html = "";
+
+    // 1. Potions section
+    html += `
+        <div class="shop-section">
+            <h3 class="shop-sec-title">🧪 ยาน้ำเพิ่มพลัง (ขวดละ 10 ฿)</h3>
+            <div class="shop-items-list">
+    `;
+    const potions = [
+        { key: "potion_hunger", name: "น้ำยาเพิ่มความอิ่ม", emoji: "🧪🍖", desc: "เพิ่มค่าความอิ่มของไดโนเสาร์ +50", price: 10 },
+        { key: "potion_mood", name: "น้ำยาเพิ่มความสุข", emoji: "🧪💖", desc: "เพิ่มค่าความสุขของไดโนเสาร์ +50", price: 10 },
+        { key: "potion_exp", name: "น้ำยาเพิ่ม EXP", emoji: "🧪✨", desc: "เพิ่มค่า EXP ของไดโนเสาร์ +30", price: 10 }
+    ];
+    potions.forEach(item => {
+        const owned = state.inventory[item.key] || 0;
+        html += `
+            <div class="shop-item-card">
+                <span class="shop-item-owned">มีแล้ว: ${owned}</span>
+                <div class="shop-item-emoji">${item.emoji}</div>
+                <h4 class="shop-item-name">${item.name}</h4>
+                <p class="shop-item-desc">${item.desc}</p>
+                <div class="shop-item-buy-row">
+                    <span class="shop-item-price">${item.price} ฿</span>
+                    <button class="btn-shop-buy" onclick="buyShopItem('${item.key}', ${item.price})">ซื้อ</button>
+                </div>
+            </div>
+        `;
+    });
+    html += `</div></div>`;
+
+    // 2. Raw Materials section
+    html += `
+        <div class="shop-section" style="margin-top: 2rem;">
+            <h3 class="shop-sec-title">🥬 วัตถุดิบทำอาหาร (ชิ้นละ 1 ฿)</h3>
+            <div class="shop-items-list">
+    `;
+    Object.entries(RAW_ITEMS).forEach(([key, meta]) => {
+        const owned = state.inventory[key] || 0;
+        html += `
+            <div class="shop-item-card material-card">
+                <span class="shop-item-owned">มีแล้ว: ${owned}</span>
+                <div class="shop-item-emoji">${meta.emoji}</div>
+                <h4 class="shop-item-name">${meta.name}</h4>
+                <p class="shop-item-desc">${meta.desc}</p>
+                <div class="shop-item-buy-row">
+                    <span class="shop-item-price">1 ฿</span>
+                    <button class="btn-shop-buy" onclick="buyShopItem('${key}', 1)">ซื้อ</button>
+                </div>
+            </div>
+        `;
+    });
+    html += `</div></div>`;
+
+    // 3. Special Potion section
+    const examOwned = state.inventory.potion_exam || 0;
+    html += `
+        <div class="shop-section" style="margin-top: 2rem;">
+            <h3 class="shop-sec-title">📜 ยาพิเศษเพิ่มโควตาสิทธิ์สอบ</h3>
+            <div class="shop-items-list">
+                <div class="shop-item-card special-card" style="grid-column: span 3; max-width: 320px;">
+                    <span class="shop-item-owned">มีแล้ว: ${examOwned}</span>
+                    <div class="shop-item-emoji">🧪📝</div>
+                    <h4 class="shop-item-name">น้ำยาเพิ่มสิทธิ์สอบ</h4>
+                    <p class="shop-item-desc">รีเซ็ตโควตาการทำข้อสอบรายวันเป็น 0 / 100 ข้อ เพื่อให้ทำข้อสอบต่อได้ทันที</p>
+                    <div class="shop-item-buy-row">
+                        <span class="shop-item-price">50 ฿</span>
+                        <button class="btn-shop-buy" onclick="buyShopItem('potion_exam', 50)">ซื้อ</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    `;
+
+    grid.innerHTML = html;
+}
+
+function buyShopItem(itemKey, cost) {
+    if (state.wallet < cost) {
+        showToast("❌ ยอดเงินของคุณไม่เพียงพอ! กรุณาเติมเงิน", "danger");
+        showTopUpModal();
+        return;
+    }
+
+    state.wallet -= cost;
+    state.inventory[itemKey] = (state.inventory[itemKey] || 0) + 1;
+    saveState();
+    updateWalletUI();
+    renderShopUI();
+    renderInventoryUI();
+    showToast(`🛒 ซื้อสำเร็จแล้ว! ได้รับไอเทมเรียบร้อย`, "success");
+}
+
+function renderGachaUI() {
+    updateWalletUI();
+    const countEl = document.getElementById("gachaSkinsCount");
+    if (countEl) countEl.textContent = state.ownedSkins.length;
+
+    const grid = document.getElementById("gachaSkinsGrid");
+    if (!grid) return;
+
+    grid.innerHTML = "";
+
+    const rarityLabels = {
+        Common: { label: "ธรรมดา", class: "rarity-common" },
+        Uncommon: { label: "ไม่ธรรมดา", class: "rarity-uncommon" },
+        Rare: { label: "หายาก", class: "rarity-rare" },
+        Epic: { label: "พิเศษ", class: "rarity-epic" },
+        Legendary: { label: "ตำนาน", class: "rarity-legendary" }
+    };
+
+    GACHA_SKINS.forEach(skin => {
+        const isOwned = state.ownedSkins.includes(skin.id);
+        const isEquipped = state.equippedSkin === skin.id;
+        const meta = rarityLabels[skin.rarity];
+
+        const card = document.createElement("div");
+        card.className = `gacha-skin-card ${meta.class} ${isOwned ? 'owned' : 'locked'} ${isEquipped ? 'equipped' : ''}`;
+
+        if (isOwned) {
+            card.innerHTML = `
+                <span class="rarity-badge">${meta.label}</span>
+                <div class="skin-emoji">${skin.emoji}</div>
+                <h4 class="skin-name">${skin.name}</h4>
+                ${isEquipped ? 
+                    `<button class="btn-skin-action btn-equipped" onclick="equipSkin('${skin.id}')">ถอดสกิน</button>` : 
+                    `<button class="btn-skin-action btn-equip" onclick="equipSkin('${skin.id}')">สวมใส่</button>`
+                }
+            `;
+        } else {
+            card.innerHTML = `
+                <span class="rarity-badge">${meta.label}</span>
+                <div class="skin-emoji">🔒</div>
+                <h4 class="skin-name">???</h4>
+                <button class="btn-skin-action btn-locked" disabled>ยังไม่มี</button>
+            `;
+        }
+
+        grid.appendChild(card);
+    });
+}
+
+function drawRandomSkin() {
+    const rand = Math.random();
+    let rarity = "Common";
+    if (rand < 0.05) {
+        rarity = "Legendary";
+    } else if (rand < 0.17) { // 0.05 + 0.12
+        rarity = "Epic";
+    } else if (rand < 0.35) { // 0.17 + 0.18
+        rarity = "Rare";
+    } else if (rand < 0.60) { // 0.35 + 0.25
+        rarity = "Uncommon";
+    } else {
+        rarity = "Common";
+    }
+
+    const choices = GACHA_SKINS.filter(s => s.rarity === rarity);
+    return choices[Math.floor(Math.random() * choices.length)];
+}
+
+function rollGacha(times) {
+    const cost = times === 10 ? 90 : 10;
+    if (state.wallet < cost) {
+        showToast("❌ ยอดเงินของคุณไม่เพียงพอ! กรุณาเติมเงิน", "danger");
+        showTopUpModal();
+        return;
+    }
+
+    // Deduct cost
+    state.wallet -= cost;
+    saveState();
+    updateWalletUI();
+
+    // Trigger roll machinery visual animation
+    const container = document.getElementById("gachaBallsContainer");
+    if (container) {
+        container.classList.add("rolling");
+    }
+    const handleBtn = document.getElementById("gachaHandleBtn");
+    if (handleBtn) {
+        handleBtn.classList.add("spinning");
+    }
+
+    setTimeout(() => {
+        if (container) container.classList.remove("rolling");
+        if (handleBtn) handleBtn.classList.remove("spinning");
+
+        const results = [];
+        let totalRefund = 0;
+
+        for (let i = 0; i < times; i++) {
+            const drawn = drawRandomSkin();
+            const alreadyOwned = state.ownedSkins.includes(drawn.id);
+            if (!alreadyOwned) {
+                state.ownedSkins.push(drawn.id);
+            } else {
+                totalRefund += 5; // refund 5 Baht for duplicate
+            }
+            results.push({ ...drawn, isDuplicate: alreadyOwned });
+        }
+
+        if (totalRefund > 0) {
+            state.wallet += totalRefund;
+            saveState();
+            updateWalletUI();
+        }
+
+        // Show result modal
+        showGachaResultsModal(results, totalRefund);
+
+        // Refresh UI
+        renderGachaUI();
+    }, 1200);
+}
+
+function showGachaResultsModal(results, totalRefund) {
+    const overlay = document.getElementById("gachaResultOverlay");
+    const list = document.getElementById("gachaResultList");
+    if (!overlay || !list) return;
+
+    list.innerHTML = "";
+
+    const rarityLabels = {
+        Common: { label: "ธรรมดา", class: "rarity-common" },
+        Uncommon: { label: "ไม่ธรรมดา", class: "rarity-uncommon" },
+        Rare: { label: "หายาก", class: "rarity-rare" },
+        Epic: { label: "พิเศษ", class: "rarity-epic" },
+        Legendary: { label: "ตำนาน", class: "rarity-legendary" }
+    };
+
+    results.forEach(item => {
+        const meta = rarityLabels[item.rarity];
+        const card = document.createElement("div");
+        card.className = `gacha-result-item ${meta.class} ${item.isDuplicate ? 'duplicate' : 'new-get'}`;
+        card.innerHTML = `
+            <span class="rarity-badge">${meta.label}</span>
+            <div class="result-emoji">${item.emoji}</div>
+            <h4 class="result-name">${item.name}</h4>
+            ${item.isDuplicate ? 
+                `<span class="result-dup-badge">ซ้ำ! คืนเงิน 5 ฿</span>` : 
+                `<span class="result-new-badge">NEW!</span>`
+            }
+        `;
+        list.appendChild(card);
+    });
+
+    if (totalRefund > 0) {
+        const banner = document.createElement("div");
+        banner.className = "gacha-refund-banner";
+        banner.innerHTML = `💰 สกินซ้ำทั้งหมด ได้รับเงินชดเชยคืน <strong>${totalRefund}</strong> บาท!`;
+        list.appendChild(banner);
+    }
+
+    overlay.style.display = "flex";
+}
+
+function closeGachaResultModal() {
+    const overlay = document.getElementById("gachaResultOverlay");
+    if (overlay) overlay.style.display = "none";
+}
+
+function equipSkin(skinId) {
+    if (state.equippedSkin === skinId) {
+        state.equippedSkin = null; // unequip
+        showToast("📴 ถอดสกินเรียบร้อย คืนร่างสายพันธุ์หลัก", "success");
+    } else {
+        state.equippedSkin = skinId; // equip
+        const skin = GACHA_SKINS.find(s => s.id === skinId);
+        showToast(`✨ สวมใส่สกิน "${skin.name}" เรียบร้อยแล้ว!`, "success");
+    }
+    saveState();
+    renderGachaUI();
+    updateDinoUI();
+    updateDashboardUI();
+}
+
+function animateGachaKnob() {
+    // Knob click behavior -> triggers 1 roll
+    rollGacha(1);
 }
